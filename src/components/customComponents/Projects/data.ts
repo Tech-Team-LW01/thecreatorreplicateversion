@@ -193,8 +193,8 @@ export const NewData = {
         "Python Object-Oriented Programming"
       ],
       registerLink: "https://rzp.io/rzp/srRJcza  ",
-      originalPrice: "8,000",
-      price: "16,000",
+      originalPrice: "16,000",
+      price: "8,000",
       projectCode: "LW-PSI-SP-101"
     },
     {
@@ -275,6 +275,115 @@ export const NewData = {
       originalPrice: "16,000",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
-    }
+    },
+    
+    {
+      title: "6. Salesforce Admin & Development",
+      description: "Build and customize CRM applications using Salesforce by mastering administration, automation, data tools, and development with Apex and Lightning Web Components.",
+
+      image: {
+        src: "/assets/Projects/Projects/MERN.png",
+        alt: "Cloud Computing Project",
+        width: 400,
+        height: 400,
+        className: "rounded-[32px] h-auto w-auto object-contain",
+        priority: true,
+      },
+      content: [
+      "Overview of Salesforce",
+      "Sales Cloud",
+      "Salesforce Objects, Fields & formula fields",
+      "Data Migration Tools",
+      "Salesforce Security",
+      "Automation in Salesforce",
+      "Role Hierarchy",
+      "Reports & DashBoard",
+      "Apex programming",
+      "DML",
+      "SOQL and SOSL",
+      "Apex Trigger",
+      "Visualforce",
+      "LWC"
+
+      ],
+      registerLink: "https://rzp.io/rzp/rbFeiL6",
+      originalPrice: "16,000",
+      price: "8,000",
+      projectCode: "LW-PSI-SP-100"
+    },
+
+    {
+      title: "7. Cybersecurity",
+      description: "Learn to protect networks, systems, and data through ethical hacking, threat detection, and defense strategies using industry-standard cybersecurity tools and practices.",
+      image: {
+        src: "/assets/Projects/Projects/MERN.png",
+        alt: "Cloud Computing Project",
+        width: 400,
+        height: 400,
+        className: "rounded-[32px] h-auto w-auto object-contain",
+        priority: true,
+      },
+      content: [
+        "Basic Networking Concepts",
+        "Overview",
+        "Overview of Cyber Law",
+        "Computer Virtualization Tech & LAB Setup",
+        "Information Gathering - Printing",
+        "Windows, Linux Password Hacking & Security",
+        "Other Concepts for Cyber Security",
+        "Mobile Phone Hacking",
+        "Denial of Service Attack - DOS Attack",
+        "Proxy Server & Virtual Private Network",
+        "Google Hacking & its Database",
+        "Social Sites Hacking & Security Issues",
+        "Email Hacking and Tracing",
+        "Linux Training",
+        "Wireless Hacking"
+        
+      ],
+      registerLink: "https://rzp.io/rzp/zihXhnn ",
+      originalPrice: "16,000",
+      price: "8,000",
+      projectCode: "LW-PSI-SP-100"
+    },
+
+    {
+      title: "8. Embedded systems, IOT, and Robotics",
+      description: "Design smart systems using embedded hardware, IoT protocols, and robotics to automate real-world tasks through sensors, controllers, and wireless communication.",
+
+      image: {
+        src: "/assets/Projects/Projects/MERN.png",
+        alt: "Cloud Computing Project",
+        width: 400,
+        height: 400,
+        className: "rounded-[32px] h-auto w-auto object-contain",
+        priority: true,
+      },
+      content: [
+        "GPIO",
+        "Liquid Crystal Display",
+        "Keys/Switches",
+        "Keypad Matrix",
+        "PWM & Timer",
+        "Motors",
+        "Serial Communication",
+        "Sensors - ADC, flame, flex, LDR, gas sensors…more",
+        "Bluetooth & RF",
+        "EEPROM",
+        "IoT Platform & Communication",
+        "MQTT",
+        "IoT Web Application – HTML, CSS, Flask, Database, Analytics, Google Cloud, Public",
+        "IoT Application",
+
+        
+      ],
+      registerLink: "https://rzp.io/rzp/oyIPDq3l",
+      originalPrice: "16,000",
+      price: "8,000",
+      projectCode: "LW-PSI-SP-100"
+    },
+
+
+    
   ]
 };
