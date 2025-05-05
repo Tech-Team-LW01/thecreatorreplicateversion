@@ -41,7 +41,7 @@ export const NewData = {
         "Advanced NN models",
         "Transfer Learning",
         "Reinforcement Learning",
-        "Generative AI (ChatGPT, Data, Audio, Code, Images, Simulations)",
+        "Generative AI (ChatGPT, media, code, and simulations)",
         "Data Processing and Analytics",
         "NLP – Text Analytics",
         "Speech Analytics",
@@ -306,7 +306,7 @@ export const NewData = {
       "LWC"
 
       ],
-      registerLink: "https://rzp.io/rzp/rbFeiL6",
+      registerLink: "https://rzp.io/rzp/AgXliZXG ",
       originalPrice: "16,000",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
