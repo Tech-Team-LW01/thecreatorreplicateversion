@@ -79,7 +79,7 @@ export const NewData = {
         "Github",
         "RHELv9 (Red Hat Enterprise Linux)"
       ],
-      registerLink: "https://rzp.io/r/zAIops",
+      registerLink: "https://rzp.io/rzp/LcByPAT ",
       originalPrice: "30,000",
       price: "15,000",
       projectCode: "LW-PSI-SP-106"
@@ -121,7 +121,7 @@ export const NewData = {
         "Hyperparameter Tuning",
         "Optimization",
       ],
-      registerLink: "https://rzp.io/rzp/NV4dSzP",
+      registerLink: "https://rzp.io/rzp/47kmYFCr",
       originalPrice: "16,000",
       price: "8,000 ",
       projectCode: "LW-PSI-SP-100"
@@ -161,7 +161,7 @@ export const NewData = {
         "Amazon Translate",
         "Amazon Forecast"
       ],
-      registerLink: "https://rzp.io/rzp/tN0AHIT",
+      registerLink: "https://rzp.io/rzp/Og4HCEB ",
       originalPrice: "16,000",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
@@ -192,7 +192,7 @@ export const NewData = {
         "Multi-Threading And Socket Programming",
         "Python Object-Oriented Programming"
       ],
-      registerLink: "https://rzp.io/rzp/OHIOmeR ",
+      registerLink: "https://rzp.io/rzp/srRJcza  ",
       originalPrice: "8,000",
       price: "16,000",
       projectCode: "LW-PSI-SP-101"
@@ -234,7 +234,7 @@ export const NewData = {
         "Flask",
         "MySQL",
       ],
-      registerLink: "https://rzp.io/rzp/7bVgfUe",
+      registerLink: "https://rzp.io/rzp/6duw8S3W ",
       originalPrice: "16,000",
       price: "8,000 ",
       projectCode: "LW-PSI-SP-100"
@@ -271,7 +271,7 @@ export const NewData = {
         "Code Organization and Structure",
         "Error Handling"
       ],
-      registerLink: "https://rzp.io/rzp/iADTiZcf ",
+      registerLink: "https://rzp.io/rzp/rbFeiL6",
       originalPrice: "16,000",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
