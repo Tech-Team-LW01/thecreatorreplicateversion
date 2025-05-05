@@ -139,7 +139,7 @@ export default function GitiProjects(): JSX.Element {
       {/* Multiple Technology Summer Track Section */}
       <div className="w-full text-center py-4" id="MultipleProjects">
         <h1 className={`text-3xl md:text-4xl mt-4 text-[#ff0000] ${khandFont.className}`}>
-          Multiple Technology Summer Track
+         Option 1 : Multiple Technology Summer Track
         </h1>
         <p className={`text-white text-sm md:text-lg ${poppins.className}`}>
           
@@ -155,7 +155,7 @@ export default function GitiProjects(): JSX.Element {
       {/* Individual Technology Summer Track Section */}
       <div className="w-full text-center py-4 mt-8" id="IndividualProjects">
         <h1 className={`text-3xl md:text-4xl mt-4 text-[#ff0000] ${khandFont.className}`}>
-          Individual Technology Summer Track
+        Option 2 : Individual Technology Summer Track
         </h1>
         <p className={`text-white text-sm md:text-lg ${poppins.className}`}>
           
