@@ -282,7 +282,7 @@ export const NewData = {
       description: "Build and customize CRM applications using Salesforce by mastering administration, automation, data tools, and development with Apex and Lightning Web Components.",
 
       image: {
-        src: "/assets/Projects/Projects/MERN.png",
+        src: "",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
