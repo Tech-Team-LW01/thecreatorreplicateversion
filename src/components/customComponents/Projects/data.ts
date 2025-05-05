@@ -122,8 +122,8 @@ export const NewData = {
         "Optimization",
       ],
       registerLink: "https://rzp.io/rzp/NV4dSzP",
-      originalPrice: "8,000",
-      price: "16,000 ",
+      originalPrice: "16,000",
+      price: "8,000 ",
       projectCode: "LW-PSI-SP-100"
     },
     {
@@ -162,8 +162,8 @@ export const NewData = {
         "Amazon Forecast"
       ],
       registerLink: "https://rzp.io/rzp/tN0AHIT",
-      originalPrice: "8,000",
-      price: "16,000",
+      originalPrice: "16,000",
+      price: "8,000",
       projectCode: "LW-PSI-SP-100"
     },
     {
@@ -235,8 +235,8 @@ export const NewData = {
         "MySQL",
       ],
       registerLink: "https://rzp.io/rzp/7bVgfUe",
-      originalPrice: "8,000",
-      price: "16,000 ",
+      originalPrice: "16,000",
+      price: "8,000 ",
       projectCode: "LW-PSI-SP-100"
     },
     {
@@ -272,8 +272,8 @@ export const NewData = {
         "Error Handling"
       ],
       registerLink: "https://rzp.io/rzp/iADTiZcf ",
-      originalPrice: "10,000",
-      price: "16,000",
+      originalPrice: "16,000",
+      price: "8,000",
       projectCode: "LW-PSI-SP-100"
     }
   ]
