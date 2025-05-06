@@ -282,7 +282,7 @@ export const NewData = {
       description: "Build and customize CRM applications using Salesforce by mastering administration, automation, data tools, and development with Apex and Lightning Web Components.",
 
       image: {
-        src: "",
+        src: "/assets/Projects/Projects/MERN.png",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
@@ -372,7 +372,7 @@ export const NewData = {
         "EEPROM",
         "IoT Platform & Communication",
         "MQTT",
-        "IoT Web Application – HTML, CSS, Flask, Database, Analytics, Google Cloud, Public",
+        "IoT Web App – HTML, CSS, Flask, DB, Analytics, GCP, Public",
         "IoT Application",
 
         
