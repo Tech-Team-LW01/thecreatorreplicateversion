@@ -282,7 +282,7 @@ export const NewData = {
       description: "Build and customize CRM applications using Salesforce by mastering administration, automation, data tools, and development with Apex and Lightning Web Components.",
 
       image: {
-        src: "/assets/Projects/Projects/MERN.png",
+        src: "/assets/Projects/Salesforce.png",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
@@ -316,7 +316,7 @@ export const NewData = {
       title: "7. Cybersecurity",
       description: "Learn to protect networks, systems, and data through ethical hacking, threat detection, and defense strategies using industry-standard cybersecurity tools and practices.",
       image: {
-        src: "/assets/Projects/Projects/MERN.png",
+        src: "/assets/Projects/Cybersecurity.png",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
@@ -352,7 +352,7 @@ export const NewData = {
       description: "Design smart systems using embedded hardware, IoT protocols, and robotics to automate real-world tasks through sensors, controllers, and wireless communication.",
 
       image: {
-        src: "/assets/Projects/Projects/MERN.png",
+        src: "/assets/Projects/IOT.png",
         alt: "Cloud Computing Project",
         width: 400,
         height: 400,
