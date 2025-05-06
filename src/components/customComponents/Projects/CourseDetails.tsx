@@ -48,10 +48,10 @@ export default function CourseDetails({
             <div className="flex flex-col">
               <div className="flex items-baseline">
                 <span className="text-lg font-medium mr-2">In Just</span>
-                <div className="flex items-center mb-3">
+                {/* <div className="flex items-center mb-3">
                 <span className="line-through text-gray-500 text-lg">₹{originalPrice} </span>
-                </div>
-                <span className="text-xl font-bold text-red-600"> &nbsp;₹{price}</span>
+                </div> */}
+                <span className="text-xl font-bold text-red-600">₹{price}</span>
                 <span className="text-lg text-red-600 ml-2">(inclusive of taxes)</span>
               </div>
              
@@ -69,8 +69,8 @@ export default function CourseDetails({
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span>in just </span>
-                <span className="text-gray-500 line-through">₹{originalPrice}</span>
-                <span className="text-xl font-bold text-red-600"> &nbsp;₹{price} (inclusive of taxes)</span>
+                {/* <span className="text-gray-500 line-through">₹{originalPrice}</span> */}
+                <span className="text-xl font-bold text-red-600">₹{price} (inclusive of taxes)</span>
               </div>
               <Button
                 className="w-1/3 bg-red-600 hover:bg-red-700 text-white"
