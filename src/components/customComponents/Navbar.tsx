@@ -108,24 +108,29 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <Image
-            src={LOGO}
-            alt="Logo"
-            width={96}
-            height={18}
-            className="object-contain overflow-hidden"
-            priority
-          />
-          <Image
-            src={LOGO1}
-            alt="Logo"
-            width={98}
-            height={32}
-            className="object-contain overflow-hidden"
-            priority
-          />
-        </Link>
+        <div className="flex items-center">
+            <Link href="/" className="flex items-center">
+              <Image
+                src={LOGO}
+                alt="Logo"
+                width={96}
+                height={36}
+                className="object-contain overflow-hidden"
+                priority
+              />
+            </Link>
+            
+            <Link href="/" className="flex items-center ml-2">
+              <Image
+                src={LOGO1}
+                alt="Logo"
+                width={96}
+                height={48}
+                className="object-contain overflow-hidden"
+                priority
+              />
+            </Link>
+          </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-6">
