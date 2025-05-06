@@ -38,6 +38,7 @@ import SupportContact from "@/components/customComponents/Support/Support";
 // import MobileGallery from "@/components/customComponents/Gallery/MobileGallery";
 import BentoGallery from "@/components/customComponents/Gallery/Gallery";
 import Experts from "@/components/customComponents/Mentor/Experts";
+import Awards2 from "@/components/customComponents/Awards/Awards2";
 // import Timeline from "@/components/customComponents/levels/LearningPath/TimeLine";
 export default function Home() {
   return (
@@ -49,12 +50,15 @@ export default function Home() {
 <RecapPreviousYear />
 
 <Mentor/>
-<Experts/>
+
 <MentorScroll/>
+<Experts/>
 <Awards/>
+
 <TopLeaders/>
 <Community/>
 <Projets/>
+<Awards2/>
 <Map/>
 {/* <Gallery/> */}
 <BentoGallery/>
