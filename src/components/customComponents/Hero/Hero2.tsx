@@ -33,10 +33,10 @@ const Hero2 = () => {
     >
      
      <Link
-  href="/application-form"
+  href="#query"
   className="bg-[#ff0000] hidden md:block p-1 text-sm md:p-2 md:text-lg rounded-sm pr-4 text-white hover:bg-red-800 font-semibold relative z-10 shadow-lg"
 >
-  Applications Open
+  Enquire Now
 </Link>
 
     </motion.div>
