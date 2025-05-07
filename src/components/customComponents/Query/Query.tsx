@@ -25,6 +25,7 @@ interface FormData {
   phone: string;
   query: string;
   college: string;
+  program: string; // New field for program selection
 }
 
 interface FormErrors {
@@ -33,6 +34,7 @@ interface FormErrors {
   phone?: string;
   query?: string;
   college?: string;
+  program?: string; // New field for program validation errors
 }
 
 const initialFormData: FormData = {
@@ -40,8 +42,21 @@ const initialFormData: FormData = {
   email: "",
   phone: "",
   query: "",
-  college: ""
+  college: "",
+  program: "" // Default empty program
 };
+
+// Available program options
+const programOptions = [
+  "MACHINE LEARNING - AI",
+  "AWS CLOUD COMPUTING",
+  "PYTHON PROGRAMMING",
+  "PYTHON FULL STACK WEB DEVELOPMENT",
+  "MERN STACK DEVELOPMENT",
+  "Salesforce Admin & Development",
+  "Cybersecurity",
+  "Embedded systems, IOT, and Robotics"
+];
 
 export default function Query() {
   const [isSwapped, setIsSwapped] = useState(false);
@@ -50,14 +65,14 @@ export default function Query() {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [errors, setErrors] = useState<FormErrors>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
     
-    // Clear error when user starts typing
+    // Clear error when user makes a selection
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({
         ...prev,
@@ -95,6 +110,11 @@ export default function Query() {
       newErrors.phone = "Please enter your phone number";
     } else if (!phoneRegex.test(formData.phone)) {
       newErrors.phone = "Please enter a valid 10-digit phone number";
+    }
+
+    // Program validation
+    if (!formData.program) {
+      newErrors.program = "Please select a training program";
     }
 
     // Query validation
@@ -254,6 +274,27 @@ export default function Query() {
                         disabled={loading}
                       />
                       {errors.college && <p className="text-red-500 text-sm mt-1">{errors.college}</p>}
+                    </div>
+                    
+                    {/* New Program Selection Dropdown */}
+                    <div>
+                      <select
+                        name="program"
+                        value={formData.program}
+                        onChange={handleChange}
+                        className={`w-full px-3 py-2 bg-gray-50 border rounded-md ${
+                          errors.program ? 'border-red-500' : 'border-gray-300'
+                        }`}
+                        disabled={loading}
+                      >
+                        <option value="">Select Training Program</option>
+                        {programOptions.map((program, index) => (
+                          <option key={index} value={program}>
+                            {program}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.program && <p className="text-red-500 text-sm mt-1">{errors.program}</p>}
                     </div>
                     
                     <div>

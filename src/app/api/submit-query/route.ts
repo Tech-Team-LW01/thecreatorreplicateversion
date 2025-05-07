@@ -1,76 +1,105 @@
+// app/api/submit-query/route.ts
+
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-
-    // Create transporter
+    const { fullName, email, phone, query, college, program } = body;
+    
+    console.log('Processing query submission...');
+    console.log('Name:', fullName);
+    console.log('Email:', email);
+    console.log('College:', college);
+    console.log('Program:', program);
+    
+    // Create email transporter with updated configuration
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // Use TLS
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.EMAIL_PASSWORD
+      },
+      tls: {
+        rejectUnauthorized: false // Only use this in development
       }
     });
 
-    // Email content
+    // Verify transporter configuration
+    await transporter.verify().catch(console.error);
+
+    // Email content with sanitized input
     const mailOptions = {
-      from: process.env.SMTP_USER,
+      from: `"Query Form" <${process.env.EMAIL_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
-      subject: 'New Summer Internship Query',
+      subject: `New Query from ${fullName}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333; text-align: center; padding: 20px 0; background-color: #f8f9fa; margin: 0;">
-            New Query Received
-          </h2>
-          
-          <div style="padding: 20px; border: 1px solid #ddd; border-radius: 5px; margin-top: 20px;">
-            <div style="margin-bottom: 15px;">
-              <strong style="color: #555;">Name:</strong>
-              <div style="margin-top: 5px;">${body.name}</div>
-            </div>
-            
-            <div style="margin-bottom: 15px;">
-              <strong style="color: #555;">WhatsApp Number:</strong>
-              <div style="margin-top: 5px;">${body.whatsapp}</div>
-            </div>
-            
-            <div style="margin-bottom: 15px;">
-              <strong style="color: #555;">Email:</strong>
-              <div style="margin-top: 5px;">${body.email}</div>
-            </div>
-            
-            <div style="margin-bottom: 15px;">
-              <strong style="color: #555;">Query:</strong>
-              <div style="margin-top: 5px; white-space: pre-wrap;">${body.query}</div>
-            </div>
-          </div>
-          
-          <div style="text-align: center; margin-top: 20px; color: #666; font-size: 12px;">
-            This is an automated message from your website's contact form.
-          </div>
+        <div style="font-family: Arial, sans-serif; padding: 20px;">
+          <h2 style="color: #333;">New Query Received</h2>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Name:</strong></td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;">${fullName}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Phone:</strong></td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;">${phone}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Email:</strong></td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;">${email}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>College:</strong></td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;">${college}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Program:</strong></td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;">${program || 'Not specified'}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Query:</strong></td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee;">${query}</td>
+            </tr>
+          </table>
         </div>
+      `,
+      // Plain text version as fallback
+      text: `
+        New Query Received
+        ------------------
+        Name: ${fullName}
+        Phone: ${phone}
+        Email: ${email}
+        College: ${college}
+        Program: ${program || 'Not specified'}
+        Query: ${query}
       `
     };
 
-    // Send email
-    await transporter.sendMail(mailOptions);
-
-    // Return success response
-    return NextResponse.json({
-      success: true,
-      message: 'Thank you! Your query has been submitted successfully.'
-    });
+    // Send email with error handling
+    try {
+      await transporter.sendMail(mailOptions);
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Query submitted successfully' 
+      });
+    } catch (emailError) {
+      console.error('Email sending error:', emailError);
+      return NextResponse.json({ 
+        success: false, 
+        error: 'Failed to send email' 
+      }, { status: 500 });
+    }
 
   } catch (error) {
-    // Log error for debugging
-    console.error('Failed to send email:', error);
-
-    // Return error response
-    return NextResponse.json({
-      success: false,
-      message: 'Failed to submit query. Please try again later.'
+    console.error('Error processing query:', error);
+    return NextResponse.json({ 
+      success: false, 
+      error: 'Server error' 
     }, { status: 500 });
   }
 }
