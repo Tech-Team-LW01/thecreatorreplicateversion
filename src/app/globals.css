@@ -207,3 +207,28 @@ body {
 .modal-animation {
   animation: fadeIn 0.3s ease-out;
 }
+
+
+
+
+/* Book now with Registration fees */
+@keyframes buttonPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  }
+  
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+  }
+  
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+  }
+}
+
+.animate-button-pulse {
+  animation: buttonPulse 1s cubic-bezier(0.4, 0, 0.6, 1) 1;
+}

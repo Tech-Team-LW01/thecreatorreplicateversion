@@ -1,6 +1,8 @@
-import { Zap } from "lucide-react"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import { Zap } from "lucide-react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils"; // Assuming you have this utility from shadcn/ui
 
 interface CourseDetailsProps {
   title: string;
@@ -19,6 +21,18 @@ export default function CourseDetails({
   originalPrice,
   price,
 }: CourseDetailsProps) {
+  const [isPulsing, setIsPulsing] = useState(false);
+  
+  // Effect to create a pulsing animation every few seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsPulsing(true);
+      setTimeout(() => setIsPulsing(false), 1000);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Card className="bg-pink-50 border-none shadow-sm max-w-3xl">
       <CardHeader className="pb-2">
@@ -48,18 +62,19 @@ export default function CourseDetails({
             <div className="flex flex-col">
               <div className="flex items-baseline">
                 <span className="text-lg font-medium mr-2">In Just</span>
-                {/* <div className="flex items-center mb-3">
-                <span className="line-through text-gray-500 text-lg">₹{originalPrice} </span>
-                </div> */}
                 <span className="text-xl font-bold text-red-600">₹{price}</span>
                 <span className="text-lg text-red-600 ml-2">(inclusive of taxes)</span>
               </div>
              
               <Button
-                className="w-full bg-red-600 hover:bg-red-700 text-white"
+                className={cn(
+                  "w-full bg-red-600 hover:bg-red-700 text-white relative overflow-hidden transition-all duration-400 transform hover:scale-105 hover:shadow-lg",
+                  isPulsing ? "animate-button-pulse" : ""
+                )}
                 onClick={() => window.open(registerLink, '_blank')}
               >
-                Book now with Registration fees
+                <span className="relative z-10">Book now with Registration fees</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Button>
             </div>
           </div>
@@ -69,14 +84,17 @@ export default function CourseDetails({
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span>in just </span>
-                {/* <span className="text-gray-500 line-through">₹{originalPrice}</span> */}
                 <span className="text-xl font-bold text-red-600">₹{price} (inclusive of taxes)</span>
               </div>
               <Button
-                className="w-1/3 bg-red-600 hover:bg-red-700 text-white"
+                className={cn(
+                  "w-1/3 bg-red-600 hover:bg-red-700 text-white relative overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-lg group",
+                  isPulsing ? "animate-button-pulse" : ""
+                )}
                 onClick={() => window.open(registerLink, '_blank')}
               >
-                Book now with Registration fees
+                <span className="relative z-10">Book now with Registration fees</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Button>
             </div>
           </div>
