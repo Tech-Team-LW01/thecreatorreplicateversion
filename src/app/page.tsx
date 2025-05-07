@@ -38,6 +38,7 @@ import Experts from "@/components/customComponents/Mentor/Experts";
 import Awards2 from "@/components/customComponents/Awards/Awards2";
 import QueryModal from "@/components/customComponents/QueryModal";
 import ContactForm from '@/components/customComponents/test-form/FormToSheet';
+import Companies from "@/components/customComponents/Community/Companies";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -66,7 +67,7 @@ export default function Home() {
       <MentorScroll />
       <Experts />
       <Awards />
-      
+      <Companies/>
       <TopLeaders />
       <Community />
       <Projets />
