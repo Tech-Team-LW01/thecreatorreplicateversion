@@ -37,7 +37,7 @@ import BentoGallery from "@/components/customComponents/Gallery/Gallery";
 import Experts from "@/components/customComponents/Mentor/Experts";
 import Awards2 from "@/components/customComponents/Awards/Awards2";
 import QueryModal from "@/components/customComponents/QueryModal";
-import ContactForm from '@/components/customComponents/test-form/FormToSheet';
+
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);

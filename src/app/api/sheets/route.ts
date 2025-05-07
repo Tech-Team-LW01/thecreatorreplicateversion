@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
     
     // Google Apps Script URL (you'll get this after setting up the script)
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby8M-MOngNxIvrsIVVbdO3fOeFic_BT0S5OWiAsH1J4LVOfMsZ8Yd7V-gwg2_h-jHo/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbykivMQ37_xhFjhb708BNr73nmSQCu97VA4M2FSN5S0g3us0uPOm7bg_uhF8Rp3QRWP/exec';
     
     // Format the data for Google Apps Script
     const params = new URLSearchParams();
