@@ -151,11 +151,11 @@ const Navbar: React.FC = () => {
               </li>
             ))}
               <a
-                  href="/application-form"
+                  href="#query"
                   className="text-white hover:text-[#ff0000] transition-colors duration-200"
                  
                 >
-                  Enroll Now
+                  Enquire Now
                 </a>
           </ul>
         </nav>
