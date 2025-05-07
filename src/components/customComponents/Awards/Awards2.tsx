@@ -40,7 +40,7 @@ const Card: React.FC<CardProps> = ({ children, className }) => {
               </div>
   
               {/* Award Image Section - With absolute positioning */}
-              <div className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 right-4 md:right-4 md:-top-16 -top-10 z-30">
+              <div className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 right-4 md:right-4 md:-top-40 -top-10 z-30">
                 {/* for desktop */}
                 <div className="relative hidden md:block z-50 ">
                   <img
