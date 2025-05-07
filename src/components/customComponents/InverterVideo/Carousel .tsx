@@ -1,8 +1,3 @@
-
-
-
-
-
 // VideoCarousel.tsx
 import React, { useEffect } from 'react';
 import Card from './Card';
@@ -10,7 +5,7 @@ import { register } from 'swiper/element/bundle';
 import { Poppins } from 'next/font/google';
 import localFont from "next/font/local";
 
-// Import Swiper styles - ADD THESE IMPORTS
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -106,11 +101,10 @@ const VideoCarousel = () => {
           },
         };
         
-        // @ts-ignore (needed to access swiper property)
+        
         Object.assign(swiperEl, swiperParams);
         
-        // Initialize Swiper
-        // @ts-ignore (needed to access swiper property)
+        
         swiperEl.initialize();
       }
     }, []);
