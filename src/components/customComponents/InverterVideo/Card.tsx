@@ -1,8 +1,12 @@
+
+
+
+
+// Card.tsx
 import React from 'react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Play } from 'lucide-react';
-import { register } from 'swiper/element/bundle';
-register();
+
 interface CardProps {
   thumbnail: string;
   videoUrl: string;
@@ -12,14 +16,16 @@ const Card = ({ thumbnail, videoUrl }: CardProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="relative w-full h-64 cursor-pointer group rounded-lg overflow-hidden">
+        <div className="relative w-full aspect-video cursor-pointer group rounded-lg overflow-hidden">
           <img
             src={thumbnail}
             alt="Video thumbnail"
-            className="w-full h-full object-fit"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <Play className="w-12 h-12 text-white" />
+            <div className="bg-red-600 rounded-full p-3">
+              <Play className="w-8 h-8 text-white" />
+            </div>
           </div>
         </div>
       </DialogTrigger>
