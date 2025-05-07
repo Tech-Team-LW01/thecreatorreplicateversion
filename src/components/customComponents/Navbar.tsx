@@ -5,7 +5,7 @@ import { List, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import LOGO from "../../../public/assets/LW-white.png";
-import LOGO1 from "../../../public/assets/Learn & Build Blue Logo-01 (1).png";
+import LOGO1 from "../../../public/assets/LNB.png";
 import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link'; // Import Link from next/link
@@ -113,8 +113,8 @@ const Navbar: React.FC = () => {
               <Image
                 src={LOGO}
                 alt="Logo"
-                width={96}
-                height={28}
+                width={84}
+                height={12}
                 className="object-contain overflow-hidden"
                 priority
               />
@@ -124,8 +124,8 @@ const Navbar: React.FC = () => {
               <Image
                 src={LOGO1}
                 alt="Logo"
-                width={96}
-                height={52}
+                width={98}
+                height={68}
                 className="object-contain overflow-hidden"
                 priority
               />
