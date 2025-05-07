@@ -38,6 +38,7 @@ import SupportContact from "@/components/customComponents/Support/Support";
 // import MobileGallery from "@/components/customComponents/Gallery/MobileGallery";
 import BentoGallery from "@/components/customComponents/Gallery/Gallery";
 import Experts from "@/components/customComponents/Mentor/Experts";
+import Awards2 from "@/components/customComponents/Awards/Awards2";
 // import Timeline from "@/components/customComponents/levels/LearningPath/TimeLine";
 
 
@@ -145,6 +146,7 @@ export default function Home() {
         onClose={() => setShowModal(false)} 
       />
 
+<<<<<<< HEAD
       {/* Your existing components */}
       <Hero2 />
       <TechStack/>
@@ -172,6 +174,76 @@ export default function Home() {
       <Query/>
       <MediaSection/>
       <SupportContact/>
+=======
+<Hero2></Hero2>
+<TechStack/>
+<RecapPreviousYear />
+
+<Mentor/>
+
+<MentorScroll/>
+<Experts/>
+<Awards/>
+
+<TopLeaders/>
+<Community/>
+<Projets/>
+<Awards2/>
+<Map/>
+{/* <Gallery/> */}
+<BentoGallery/>
+<Benifits/>
+<Timeline/>
+<OutCome/>
+<JazbaaStartupPlatform/>
+
+<OutComeGallary/>
+<InvestorCarousel/>
+<JazbaaTimeLine/>
+<LeftRightAlumniCarousel/>
+<VideoTestimonials/>
+
+<ImageTestimonials/>
+<FeatureGrid/>
+<Query/>
+<MediaSection/>
+
+{/* <Timeline /> */}
+
+
+
+
+
+
+
+
+
+
+<div>
+
+
+
+{/* <InitPlacement/> */}
+</div>
+{/* <FactAndFiqure/> */}
+
+{/* <Blogs/> */}
+
+{/* <Tedx/> */}
+{/* <Tedx2></Tedx2> */}
+{/* FeatureGrid is TedX */}
+
+
+
+
+
+
+{/* <Mentor2/> */}
+
+
+
+<SupportContact/>
+>>>>>>> 804fb7297c65d993e89d2cc9c38245785b723dc8
     </div>
   );
 }

@@ -80,7 +80,7 @@ export const NewData = {
         "RHELv9 (Red Hat Enterprise Linux)"
       ],
       registerLink: "https://rzp.io/rzp/LcByPAT ",
-      originalPrice: "30,000",
+      originalPrice: "",
       price: "15,000",
       projectCode: "LW-PSI-SP-106"
     }
@@ -122,7 +122,7 @@ export const NewData = {
         "Optimization",
       ],
       registerLink: "https://rzp.io/rzp/47kmYFCr",
-      originalPrice: "16,000",
+      originalPrice: "",
       price: "8,000 ",
       projectCode: "LW-PSI-SP-100"
     },
@@ -193,7 +193,7 @@ export const NewData = {
         "Python Object-Oriented Programming"
       ],
       registerLink: "https://rzp.io/rzp/srRJcza  ",
-      originalPrice: "16,000",
+      originalPrice: "",
       price: "8,000",
       projectCode: "LW-PSI-SP-101"
     },
@@ -235,7 +235,7 @@ export const NewData = {
         "MySQL",
       ],
       registerLink: "https://rzp.io/rzp/6duw8S3W ",
-      originalPrice: "16,000",
+      originalPrice: "",
       price: "8,000 ",
       projectCode: "LW-PSI-SP-100"
     },
@@ -272,7 +272,7 @@ export const NewData = {
         "Error Handling"
       ],
       registerLink: "https://rzp.io/rzp/rbFeiL6",
-      originalPrice: "16,000",
+      originalPrice: "",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
     },
@@ -307,7 +307,7 @@ export const NewData = {
 
       ],
       registerLink: "https://rzp.io/rzp/AgXliZXG ",
-      originalPrice: "16,000",
+      originalPrice: "",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
     },
@@ -342,7 +342,7 @@ export const NewData = {
         
       ],
       registerLink: "https://rzp.io/rzp/zihXhnn ",
-      originalPrice: "16,000",
+      originalPrice: "",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
     },
@@ -378,7 +378,7 @@ export const NewData = {
         
       ],
       registerLink: "https://rzp.io/rzp/oyIPDq3l",
-      originalPrice: "16,000",
+      originalPrice: "",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
     },
