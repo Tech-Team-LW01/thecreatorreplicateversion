@@ -28,7 +28,7 @@ export function TopLeaders() {
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
           {/* <button className="px-4 py-4 bg-[#ff0000] mb-4 hover:bg-red-700 transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]">
-            Apply Now
+            Enroll Now
           </button> */}
           <button className={`mb-6 p-2 rounded-sm text-white text-2xl text-bold bg-[#ff0000] text-bold ${poppins.className}`}>
           The Creator 2025</button>

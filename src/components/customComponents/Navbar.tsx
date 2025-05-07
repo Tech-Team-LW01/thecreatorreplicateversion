@@ -155,7 +155,7 @@ const Navbar: React.FC = () => {
                   className="text-white hover:text-[#ff0000] transition-colors duration-200"
                  
                 >
-                  Apply Now
+                  Enroll Now
                 </a>
           </ul>
         </nav>

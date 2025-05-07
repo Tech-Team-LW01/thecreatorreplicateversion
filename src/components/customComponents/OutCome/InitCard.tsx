@@ -34,7 +34,7 @@ export default function InitCard() {
       <CardFooter className="flex flex-col gap-4 pb-6">
         <Link href="/application-form">
         <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-8">
-          APPLY NOW
+          Enroll Now
         </Button>
         </Link>
         {/* Social Links */}

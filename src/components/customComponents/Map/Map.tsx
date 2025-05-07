@@ -38,7 +38,7 @@ const Map = () => {
     </p>
   </div>
 
-  {/* Apply Now Button - Centered on Mobile */}
+  {/* Enroll Now Button - Centered on Mobile */}
 
 
   <div className="hidden md:block">
@@ -51,7 +51,7 @@ const Map = () => {
                 className={`transform bg-[#ff0000] hover:bg-red-800 transition-all duration-300 hover:scale-105 px-8 py-3  shadow-lg hover:shadow-xl`}
                
               >
-               Apply Now
+               Enroll Now
               </Button>
               </a>
   </div>
@@ -76,7 +76,7 @@ const Map = () => {
                 className={`transform bg-[#ff0000] hover:bg-red-800 transition-all duration-300 hover:scale-105 px-8 py-3 rounded-lg shadow-lg hover:shadow-xl`}
                
               >
-               Apply Now
+               Enroll Now
               </Button>
               </a>
   </div>

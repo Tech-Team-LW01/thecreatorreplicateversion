@@ -169,7 +169,7 @@ const Hero2 = () => {
               className={`bg-[#ff0000] font-semibold text-xs sm:text-sm py-3 px-5 sm:py-4 sm:px-6 md:py-6 md:px-8 hover:bg-[#ff0000]/90 hover:shadow-lg transition-all duration-300  font-semibold `}
               size="lg"
               >
-              Apply Now
+              Enroll Now
             </Button>
           </Link>
         </div>
