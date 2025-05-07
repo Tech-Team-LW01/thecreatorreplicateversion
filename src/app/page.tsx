@@ -40,11 +40,141 @@ import BentoGallery from "@/components/customComponents/Gallery/Gallery";
 import Experts from "@/components/customComponents/Mentor/Experts";
 import Awards2 from "@/components/customComponents/Awards/Awards2";
 // import Timeline from "@/components/customComponents/levels/LearningPath/TimeLine";
-export default function Home() {
-  return (
-    <div >
-{/* <Hero></Hero> */}
 
+
+
+
+// export default function Home() {
+//   return (
+//     <div >
+// {/* <Hero></Hero> */}
+
+// <Hero2></Hero2>
+// <TechStack/>
+// <RecapPreviousYear />
+
+// <Mentor/>
+// <Experts/>
+// <MentorScroll/>
+// <Awards/>
+// <TopLeaders/>
+// <Community/>
+// <Projets/>
+// <Map/>
+// {/* <Gallery/> */}
+// <BentoGallery/>
+// <Benifits/>
+// <Timeline/>
+// <OutCome/>
+// <JazbaaStartupPlatform/>
+
+// <OutComeGallary/>
+// <InvestorCarousel/>
+// <JazbaaTimeLine/>
+// <LeftRightAlumniCarousel/>
+// <VideoTestimonials/>
+
+// <ImageTestimonials/>
+// <FeatureGrid/>
+// <Query/>
+// <MediaSection/>
+
+// {/* <Timeline /> */}
+
+
+
+
+
+
+
+
+
+
+// <div>
+
+
+
+// {/* <InitPlacement/> */}
+// </div>
+// {/* <FactAndFiqure/> */}
+
+// {/* <Blogs/> */}
+
+// {/* <Tedx/> */}
+// {/* <Tedx2></Tedx2> */}
+// {/* FeatureGrid is TedX */}
+
+
+
+
+
+
+// {/* <Mentor2/> */}
+
+
+
+// <SupportContact/>
+//     </div>
+//   );
+// }
+
+
+
+
+
+import { useEffect, useState } from 'react';
+import QueryModal from "@/components/customComponents/QueryModal";
+// ... your existing imports
+
+export default function Home() {
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    // Show modal after 10 seconds
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 10000);
+
+    // Cleanup timer
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div>
+      <QueryModal 
+        isOpen={showModal} 
+        onClose={() => setShowModal(false)} 
+      />
+
+<<<<<<< HEAD
+      {/* Your existing components */}
+      <Hero2 />
+      <TechStack/>
+      <RecapPreviousYear />
+      <Mentor/>
+      <Experts/>
+      <MentorScroll/>
+      <Awards/>
+      <TopLeaders/>
+      <Community/>
+      <Projets/>
+      <Map/>
+      <BentoGallery/>
+      <Benifits/>
+      <Timeline/>
+      <OutCome/>
+      <JazbaaStartupPlatform/>
+      <OutComeGallary/>
+      <InvestorCarousel/>
+      <JazbaaTimeLine/>
+      <LeftRightAlumniCarousel/>
+      <VideoTestimonials/>
+      <ImageTestimonials/>
+      <FeatureGrid/>
+      <Query/>
+      <MediaSection/>
+      <SupportContact/>
+=======
 <Hero2></Hero2>
 <TechStack/>
 <RecapPreviousYear />
@@ -113,6 +243,7 @@ export default function Home() {
 
 
 <SupportContact/>
+>>>>>>> 804fb7297c65d993e89d2cc9c38245785b723dc8
     </div>
   );
 }
