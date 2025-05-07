@@ -46,22 +46,22 @@ const VideoCarousel = () => {
       },
       {
         id: 3,
-        videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_3?autoplay=1',
+        videoUrl: ' https://youtu.be/iAbbo8kymI8',
         thumbnail:"/assets/Thumbnail/3.jpg",
       },
       {
         id: 4,
-        videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_4?autoplay=1',
+        videoUrl: 'https://youtu.be/bbZdkF7jjUg',
         thumbnail:"/assets/Thumbnail/4.jpg",
       },
       {
         id: 5,
-        videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_5?autoplay=1',
+        videoUrl: 'https://youtu.be/lq5cFsWSqMA',
         thumbnail:"/assets/Thumbnail/5.jpg",
       },
       {
         id: 6,
-        videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_6?autoplay=1',
+        videoUrl: 'https://youtu.be/xdVdOeRmEKg',
         thumbnail:"/assets/Thumbnail/6.jpg",
       },
     ];
