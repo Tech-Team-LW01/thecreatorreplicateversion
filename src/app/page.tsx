@@ -39,76 +39,139 @@ import SupportContact from "@/components/customComponents/Support/Support";
 import BentoGallery from "@/components/customComponents/Gallery/Gallery";
 import Experts from "@/components/customComponents/Mentor/Experts";
 // import Timeline from "@/components/customComponents/levels/LearningPath/TimeLine";
+
+
+
+
+// export default function Home() {
+//   return (
+//     <div >
+// {/* <Hero></Hero> */}
+
+// <Hero2></Hero2>
+// <TechStack/>
+// <RecapPreviousYear />
+
+// <Mentor/>
+// <Experts/>
+// <MentorScroll/>
+// <Awards/>
+// <TopLeaders/>
+// <Community/>
+// <Projets/>
+// <Map/>
+// {/* <Gallery/> */}
+// <BentoGallery/>
+// <Benifits/>
+// <Timeline/>
+// <OutCome/>
+// <JazbaaStartupPlatform/>
+
+// <OutComeGallary/>
+// <InvestorCarousel/>
+// <JazbaaTimeLine/>
+// <LeftRightAlumniCarousel/>
+// <VideoTestimonials/>
+
+// <ImageTestimonials/>
+// <FeatureGrid/>
+// <Query/>
+// <MediaSection/>
+
+// {/* <Timeline /> */}
+
+
+
+
+
+
+
+
+
+
+// <div>
+
+
+
+// {/* <InitPlacement/> */}
+// </div>
+// {/* <FactAndFiqure/> */}
+
+// {/* <Blogs/> */}
+
+// {/* <Tedx/> */}
+// {/* <Tedx2></Tedx2> */}
+// {/* FeatureGrid is TedX */}
+
+
+
+
+
+
+// {/* <Mentor2/> */}
+
+
+
+// <SupportContact/>
+//     </div>
+//   );
+// }
+
+
+
+
+
+import { useEffect, useState } from 'react';
+import QueryModal from "@/components/customComponents/QueryModal";
+// ... your existing imports
+
 export default function Home() {
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    // Show modal after 10 seconds
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 10000);
+
+    // Cleanup timer
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div >
-{/* <Hero></Hero> */}
+    <div>
+      <QueryModal 
+        isOpen={showModal} 
+        onClose={() => setShowModal(false)} 
+      />
 
-<Hero2></Hero2>
-<TechStack/>
-<RecapPreviousYear />
-
-<Mentor/>
-<Experts/>
-<MentorScroll/>
-<Awards/>
-<TopLeaders/>
-<Community/>
-<Projets/>
-<Map/>
-{/* <Gallery/> */}
-<BentoGallery/>
-<Benifits/>
-<Timeline/>
-<OutCome/>
-<JazbaaStartupPlatform/>
-
-<OutComeGallary/>
-<InvestorCarousel/>
-<JazbaaTimeLine/>
-<LeftRightAlumniCarousel/>
-<VideoTestimonials/>
-
-<ImageTestimonials/>
-<FeatureGrid/>
-<Query/>
-<MediaSection/>
-
-{/* <Timeline /> */}
-
-
-
-
-
-
-
-
-
-
-<div>
-
-
-
-{/* <InitPlacement/> */}
-</div>
-{/* <FactAndFiqure/> */}
-
-{/* <Blogs/> */}
-
-{/* <Tedx/> */}
-{/* <Tedx2></Tedx2> */}
-{/* FeatureGrid is TedX */}
-
-
-
-
-
-
-{/* <Mentor2/> */}
-
-
-
-<SupportContact/>
+      {/* Your existing components */}
+      <Hero2 />
+      <TechStack/>
+      <RecapPreviousYear />
+      <Mentor/>
+      <Experts/>
+      <MentorScroll/>
+      <Awards/>
+      <TopLeaders/>
+      <Community/>
+      <Projets/>
+      <Map/>
+      <BentoGallery/>
+      <Benifits/>
+      <Timeline/>
+      <OutCome/>
+      <JazbaaStartupPlatform/>
+      <OutComeGallary/>
+      <InvestorCarousel/>
+      <JazbaaTimeLine/>
+      <LeftRightAlumniCarousel/>
+      <VideoTestimonials/>
+      <ImageTestimonials/>
+      <FeatureGrid/>
+      <Query/>
+      <MediaSection/>
+      <SupportContact/>
     </div>
   );
 }

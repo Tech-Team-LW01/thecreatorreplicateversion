@@ -1,12 +1,21 @@
+
+
+
+
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { fullName, email, phone, query,college } = body;
+    const { fullName, email, phone, query, college } = body;
+    
+    console.log('Processing contact form submission...');
+    console.log('Name:', fullName);
+    console.log('Email:', email);
     console.log('College:', college);
-    // Create transporter
+
+    // Create transporter with more detailed configuration
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
@@ -15,11 +24,22 @@ export async function POST(request: Request) {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
       },
+      tls: {
+        // Do not fail on invalid certificates
+        rejectUnauthorized: false,
+      },
+      debug: true // Enable verbose logging
+    });
+
+    // Verify transporter configuration
+    await transporter.verify().catch(error => {
+      console.error('Transporter verification failed:', error);
+      throw new Error(`SMTP Configuration Error: ${error instanceof Error ? error.message : String(error)}`);
     });
 
     // Email content
     const mailOptions = {
-      from: process.env.SMTP_USER,
+      from: `"Contact Form" <${process.env.SMTP_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
       subject: `New Query from ${fullName}`,
       html: `
@@ -32,20 +52,48 @@ export async function POST(request: Request) {
           <p><strong>Query:</strong> ${query}</p>
         </div>
       `,
+      // Add text version for email clients that don't support HTML
+      text: `
+        New Query Received
+        ------------------
+        Name: ${fullName}
+        Email: ${email}
+        Phone: ${phone}
+        College Name: ${college}
+        Query: ${query}
+      `,
     };
 
-    // Send email
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent:', info.messageId);
-
+    // Send email with better error handling
+    try {
+      const info = await transporter.sendMail(mailOptions);
+      console.log('Email sent successfully:', info.messageId);
+      return NextResponse.json(
+        { success: true, message: 'Query submitted successfully' },
+        { status: 200 }
+      );
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error('Error in sendMail:', errorMessage);
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: 'Failed to send email', 
+          error: errorMessage 
+        },
+        { status: 500 }
+      );
+    }
+    
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error('Error processing request:', errorMessage);
     return NextResponse.json(
-      { success: true, message: 'Query submitted successfully' },
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error('Error sending email:', error);
-    return NextResponse.json(
-      { success: false, message: 'Failed to send email', error: String(error) },
+      { 
+        success: false, 
+        message: 'Server error processing your request', 
+        error: errorMessage 
+      },
       { status: 500 }
     );
   }
