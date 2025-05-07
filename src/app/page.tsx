@@ -40,6 +40,7 @@ import QueryModal from "@/components/customComponents/QueryModal";
 import ContactForm from '@/components/customComponents/test-form/FormToSheet';
 import Companies from "@/components/customComponents/Community/Companies";
 
+
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
 
