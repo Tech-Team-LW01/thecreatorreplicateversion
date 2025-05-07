@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
                 src={LOGO}
                 alt="Logo"
                 width={96}
-                height={36}
+                height={28}
                 className="object-contain overflow-hidden"
                 priority
               />
