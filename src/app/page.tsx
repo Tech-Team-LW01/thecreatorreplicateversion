@@ -311,10 +311,11 @@ export default function Home() {
       <MentorScroll />
       <Experts />
       <Awards />
-      <Awards2 />
+      
       <TopLeaders />
       <Community />
       <Projets />
+      <Awards2 />
       <Map />
       <BentoGallery />
       <Benifits />

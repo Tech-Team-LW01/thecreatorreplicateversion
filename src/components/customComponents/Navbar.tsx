@@ -5,7 +5,7 @@ import { List, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import LOGO from "../../../public/assets/LW-white.png";
-import LOGO1 from "../../../public/assets/LNB.png";
+import LOGO1 from "../../../public/assets/LNB1.png";
 import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link'; // Import Link from next/link
