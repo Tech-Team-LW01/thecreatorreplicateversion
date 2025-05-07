@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({ children, className }) => {
     return (
       <div className="w-full bg-black p-8 flex justify-center">
         <div className="w-full max-w-5xl mx-auto bg-black px-4 sm:px-12 py-4">
-          <Card className="relative bg-white shadow-lg rounded-[40px] px-4 sm:px-8 md:px-12 py-6 md:py-8 overflow-hidden">
+          <Card className="relative bg-white shadow-lg rounded-[40px] px-4 sm:px-8 md:px-12 py-6 md:py-8 overflow-visible">
             <div className="flex flex-col md:flex-row items-center h-full w-full">
               {/* Left Section with Logo - Reduced width */}
               <div className="flex justify-center items-center z-10 md:w-auto">
@@ -40,15 +40,15 @@ const Card: React.FC<CardProps> = ({ children, className }) => {
               </div>
   
               {/* Award Image Section - With absolute positioning */}
-              <div className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 right-4 md:bottom-0 md:-top-8 -top-5 md:-top-10 ">
-            {/* for desktop */}
-              <div className="relative hidden md:block  border-white">
-                <img
-                  className='relative md:w-[320px] md:h-400px] w-[300px] h-full object-fit'
-                  src='/assets/Award/award2.png'
-                  alt="Award"
-                />
-              </div>
+              <div className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 right-4 md:right-4 md:-top-16 -top-10 z-30">
+                {/* for desktop */}
+                <div className="relative hidden md:block z-50 ">
+                  <img
+                    className='relative md:w-[350px] md:h-[400px] w-[300px] h-full object-contain z-50 transform md:translate-y-10 md:translate-x-5'
+                    src='/assets/Award/award2.png'
+                    alt="Award"
+                  />
+                </div>
               </div>
             </div>
             
