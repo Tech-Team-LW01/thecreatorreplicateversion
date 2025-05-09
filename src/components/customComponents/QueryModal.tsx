@@ -26,7 +26,7 @@ interface FormData {
   phone: string;
   query: string;
   college: string;
-  program: string; // New field for program selection
+  program: string;
 }
 
 interface FormErrors {
@@ -35,7 +35,7 @@ interface FormErrors {
   phone?: string;
   query?: string;
   college?: string;
-  program?: string; // New field for program errors
+  program?: string;
 }
 
 const initialFormData: FormData = {
@@ -44,10 +44,9 @@ const initialFormData: FormData = {
   phone: "",
   query: "",
   college: "",
-  program: "" // Default empty program
+  program: ""
 };
 
-// Program options array
 const programOptions = [
   "MACHINE LEARNING - AI",
   "AWS CLOUD COMPUTING",
@@ -83,6 +82,18 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose]);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -213,7 +224,8 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
     >
       <Toaster position="top-center" />
       
-      <div className="bg-white mt-12 rounded-lg max-w-4xl w-full relative overflow-hidden">
+      {/* Added pt-10 and pb-10 for top spacing, and max-h-[90vh] to ensure it doesn't get too tall */}
+      <div className="bg-white rounded-lg max-w-4xl w-full relative overflow-auto my-8 mx-4 max-h-[90vh]">
         {/* Close button */}
         <button 
           onClick={onClose}
@@ -339,7 +351,7 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
   );
 };
 
-// Reusable Input Field Component (unchanged)
+// Components remain the same
 const InputField = ({ 
   type, 
   name, 
@@ -376,7 +388,6 @@ const InputField = ({
   </div>
 );
 
-// Reusable Textarea Field Component (unchanged)
 const TextAreaField = ({ 
   name, 
   value, 
@@ -408,7 +419,6 @@ const TextAreaField = ({
   </div>
 );
 
-// New Select Field Component
 const SelectField = ({ 
   name, 
   value, 
