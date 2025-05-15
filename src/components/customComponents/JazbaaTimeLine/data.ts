@@ -13,7 +13,7 @@ export const Data2014 = [
       studentName: "Naresh Kumar",
       role: "Associate - Software Engineer",
       companyLogoUrl: "https://media.licdn.com/dms/image/v2/C4E0BAQEawcpuMBGTFg/company-logo_200_200/company-logo_200_200/0/1630636440658/unthinkable_software_logo?e=1746662400&v=beta&t=qJOTgY6M_2aqZbZBFt5_EkLJnR-gMNYL5TQlJMZqVlc",
-      profileImage: "https://media.licdn.com/dms/image/v2/D5635AQFUIPQ07z7JDA/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1733483960818?e=1740474000&v=beta&t=l7-FZgfYjnrXyn12otOxAeuODh3aE9ThaY_TXPlYnR4",
+      profileImage: "https://media.licdn.com/dms/image/v2/C4D03AQGA4NC7Is9gKw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1667874771307?e=1752710400&v=beta&t=c1ZWvXJyQcJ6p5pmNV7x7S4wK3OOctaH6qECP6KKVR8",
     },
     {
       id: "2014-3",
