@@ -34,5 +34,17 @@ export const speakersData = [
       facebook: "https://www.facebook.com/share/19saGkd9qy/",
       linkedin: "https://www.linkedin.com/in/vimaldaga?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     }
+  },
+  {
+    imageUrl: "/tedx/tedx4.jpg",
+    badge: "Entrepreneur",
+    firstName: "At Rajasthan Police Hackathon",
+    lastName: "Mr. Saurabh Bhardwaj",
+    link: "https://www.instagram.com/reel/C2nAar-p0Ha/?igsh=MXVjdTV0dXFxMDI0ZA==",
+    socialLinks: {
+      instagram: "https://www.instagram.com/reel/C2nAar-p0Ha/?igsh=MXVjdTV0dXFxMDI0ZA==",
+      facebook: "",
+      linkedin: ""
+    }
   }
 ];

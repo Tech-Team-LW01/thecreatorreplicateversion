@@ -148,7 +148,7 @@ const Hero = () => {
         <div className="flex flex-col items-center justify-center w-full lg:w-auto">
           <a href="" target="_blank" rel="noopener noreferrer" className="w-full lg:w-auto">
             <Button className="bg-[#ff0000] w-full lg:w-auto text-sm py-6 px-8 hover:bg-[#ff0000]/90 hover:shadow-lg transition-all duration-300">
-              Apply Now
+              Enroll Now
             </Button>
           </a>
         </div>

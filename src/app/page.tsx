@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client"
 // import Image from "next/image";
 // import {Demo} from "../components/customComponents/Hero/IndiaMap"
@@ -117,6 +118,8 @@ import Awards2 from "@/components/customComponents/Awards/Awards2";
 //     </div>
 //   );
 // }
+=======
+>>>>>>> e89ed32c573f45139857ffac86f12496cf827172
 
 
 
@@ -125,6 +128,9 @@ import Awards2 from "@/components/customComponents/Awards/Awards2";
 import { useEffect, useState } from 'react';
 import QueryModal from "@/components/customComponents/QueryModal";
 // ... your existing imports
+
+import Companies from "@/components/customComponents/Community/Companies";
+
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -145,6 +151,7 @@ export default function Home() {
         isOpen={showModal} 
         onClose={() => setShowModal(false)} 
       />
+<<<<<<< HEAD
       
 
 <Hero2></Hero2>
@@ -215,6 +222,37 @@ export default function Home() {
 
 
 <SupportContact/>
+=======
+{/* <ContactForm/> */}
+      <Hero2 />
+      <TechStack />
+      <RecapPreviousYear />
+      <Mentor />
+      <MentorScroll />
+      <Experts />
+      <Awards />
+      <Companies/>
+      <TopLeaders />
+      <Community />
+      <Projets />
+      <Awards2 />
+      <Map />
+      <BentoGallery />
+      <Benifits />
+      <Timeline />
+      <OutCome />
+      <JazbaaStartupPlatform />
+      <OutComeGallary />
+      <InvestorCarousel />
+      <JazbaaTimeLine />
+      <LeftRightAlumniCarousel />
+      <VideoTestimonials />
+      <ImageTestimonials />
+      <FeatureGrid />
+      <Query />
+      <MediaSection />
+      <SupportContact />
+>>>>>>> e89ed32c573f45139857ffac86f12496cf827172
     </div>
   );
 }

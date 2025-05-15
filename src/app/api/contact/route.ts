@@ -1,19 +1,16 @@
-
-
-
-
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { fullName, email, phone, query, college } = body;
+    const { fullName, email, phone, query, college, program } = body; // Added program field
     
     console.log('Processing contact form submission...');
     console.log('Name:', fullName);
     console.log('Email:', email);
     console.log('College:', college);
+    console.log('Program:', program); // Log program field
 
     // Create transporter with more detailed configuration
     const transporter = nodemailer.createTransport({
@@ -41,14 +38,15 @@ export async function POST(request: Request) {
     const mailOptions = {
       from: `"Contact Form" <${process.env.SMTP_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
-      subject: `New Query from ${fullName}`,
+      subject: `Summerinternship.in New Query from ${fullName}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px;">
-          <h2>New Query Received</h2>
+          <h2>New Query Received of Summer Internship </h2>
           <p><strong>Name:</strong> ${fullName}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone}</p>
           <p><strong>College Name:</strong> ${college}</p>
+          <p><strong>Program:</strong> ${program || 'Not specified'}</p>
           <p><strong>Query:</strong> ${query}</p>
         </div>
       `,
@@ -60,6 +58,7 @@ export async function POST(request: Request) {
         Email: ${email}
         Phone: ${phone}
         College Name: ${college}
+        Program: ${program || 'Not specified'}
         Query: ${query}
       `,
     };

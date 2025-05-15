@@ -1,6 +1,3 @@
-
-
-
 "use client";
 
 import { useState } from "react";
@@ -28,6 +25,16 @@ interface FormData {
   phone: string;
   query: string;
   college: string;
+  program: string; // New field for program selection
+}
+
+interface FormErrors {
+  fullName?: string;
+  email?: string;
+  phone?: string;
+  query?: string;
+  college?: string;
+  program?: string; // New field for program validation errors
 }
 
 const initialFormData: FormData = {
@@ -35,55 +42,112 @@ const initialFormData: FormData = {
   email: "",
   phone: "",
   query: "",
-  college: ""
+  college: "",
+  program: "" // Default empty program
 };
+
+// Available program options
+const programOptions = [
+  "MACHINE LEARNING - AI",
+  "AWS CLOUD COMPUTING",
+  "PYTHON PROGRAMMING",
+  "PYTHON FULL STACK WEB DEVELOPMENT",
+  "MERN STACK DEVELOPMENT",
+  "Salesforce Admin & Development",
+  "Cybersecurity",
+  "Embedded systems, IOT, and Robotics"
+];
 
 export default function Query() {
   const [isSwapped, setIsSwapped] = useState(false);
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [errors, setErrors] = useState<FormErrors>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    
+    // Clear error when user makes a selection
+    if (errors[name as keyof FormErrors]) {
+      setErrors(prev => ({
+        ...prev,
+        [name as keyof FormErrors]: undefined
+      }));
+    }
   };
 
-  const validateForm = () => {
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    // Full Name validation
     if (!formData.fullName.trim()) {
-      toast.error("Please enter your full name");
-      return false;
+      newErrors.fullName = "Please enter your full name";
+    } else if (formData.fullName.length < 2) {
+      newErrors.fullName = "Name must be at least 2 characters";
     }
+
+    // College validation
     if (!formData.college.trim()) {
-      toast.error("Please enter your college name");
-      return false;
+      newErrors.college = "Please enter your college name";
     }
-    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
-      toast.error("Please enter a valid email address");
-      return false;
+
+    // Email validation
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!formData.email.trim()) {
+      newErrors.email = "Please enter your email address";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
     }
-    if (!formData.phone.trim() || !/^\d{10}$/.test(formData.phone)) {
-      toast.error("Please enter a valid 10-digit phone number");
-      return false;
+
+    // Phone validation
+    const phoneRegex = /^\d{10}$/;
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Please enter your phone number";
+    } else if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = "Please enter a valid 10-digit phone number";
     }
+
+    // Program validation
+    if (!formData.program) {
+      newErrors.program = "Please select a training program";
+    }
+
+    // Query validation
     if (!formData.query.trim()) {
-      toast.error("Please enter your query");
+      newErrors.query = "Please enter your query";
+    } else if (formData.query.length < 10) {
+      newErrors.query = "Query must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    
+    // If there are errors, show the first one as a toast
+    if (Object.keys(newErrors).length > 0) {
+      const firstError = Object.values(newErrors)[0];
+      toast.error(firstError || "Please fix the errors in the form");
       return false;
     }
+    
     return true;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    
+    if (!validateForm()) {
+      return;
+    }
     
     setLoading(true);
     
     try {
-      const response = await fetch('/api/contact', {
+      // 1. Submit to email API endpoint
+      const emailResponse = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -91,16 +155,37 @@ export default function Query() {
         body: JSON.stringify(formData),
       });
       
-      const data = await response.json();
+      const emailData = await emailResponse.json();
       
-      if (response.ok) {
-        toast.success("Query submitted successfully!");
-        setFormData(initialFormData);
-      } else {
-        toast.error(data.message || "Something went wrong!");
+      if (!emailResponse.ok) {
+        throw new Error(emailData.message || "Email submission failed");
       }
+      
+      // 2. Submit to Google Sheets
+      try {
+        const sheetsResponse = await fetch('/api/sheets', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        if (!sheetsResponse.ok) {
+          console.warn("Google Sheets submission had issues, but email was sent");
+        }
+      } catch (sheetsError) {
+        // Log the error but don't fail the whole submission since email was sent
+        console.error("Google Sheets submission failed:", sheetsError);
+      }
+      
+      // Success handling
+      toast.success("Query submitted successfully!");
+      setFormData(initialFormData);
     } catch (error) {
-      toast.error("Failed to submit query");
+      console.error("Error submitting form:", error);
+      const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
+      toast.error(`Failed to submit query: ${errorMessage}`);
     } finally {
       setLoading(false);
     }
@@ -138,52 +223,95 @@ export default function Query() {
                 {/* Form Section */}
                 <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-16">
                   <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
-                    <Input 
-                      type="text" 
-                      name="fullName"
-                      placeholder="Full Name" 
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className="bg-gray-50" 
-                      disabled={loading}
-                    />
-                    <Input 
-                      type="email" 
-                      name="email"
-                      placeholder="Email" 
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="bg-gray-50"
-                      disabled={loading}
-                    />
-                    <Input 
-                      type="tel" 
-                      name="phone"
-                      placeholder="Phone" 
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="bg-gray-50"
-                      disabled={loading}
-                      maxLength={10}
-                    />
-                    <Input 
-                      type="text" 
-                      name="college"
-                      placeholder="College Name" 
-                      value={formData.college}
-                      onChange={handleChange}
-                      className="bg-gray-50"
-                      disabled={loading}
-                    />
-                    <textarea 
-                      name="query"
-                      placeholder="Query" 
-                      value={formData.query}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md"
-                      disabled={loading}
-                      rows={4}
-                    />
+                    <div>
+                      <Input 
+                        type="text" 
+                        name="fullName"
+                        placeholder="Full Name" 
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        className={`bg-gray-50 ${errors.fullName ? 'border-red-500' : ''}`}
+                        disabled={loading}
+                      />
+                      {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
+                    </div>
+                    
+                    <div>
+                      <Input 
+                        type="email" 
+                        name="email"
+                        placeholder="Email" 
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={`bg-gray-50 ${errors.email ? 'border-red-500' : ''}`}
+                        disabled={loading}
+                      />
+                      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                    </div>
+                    
+                    <div>
+                      <Input 
+                        type="tel" 
+                        name="phone"
+                        placeholder="Phone" 
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className={`bg-gray-50 ${errors.phone ? 'border-red-500' : ''}`}
+                        disabled={loading}
+                        maxLength={10}
+                      />
+                      {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                    </div>
+                    
+                    <div>
+                      <Input 
+                        type="text" 
+                        name="college"
+                        placeholder="College Name" 
+                        value={formData.college}
+                        onChange={handleChange}
+                        className={`bg-gray-50 ${errors.college ? 'border-red-500' : ''}`}
+                        disabled={loading}
+                      />
+                      {errors.college && <p className="text-red-500 text-sm mt-1">{errors.college}</p>}
+                    </div>
+                    
+                    {/* New Program Selection Dropdown */}
+                    <div>
+                      <select
+                        name="program"
+                        value={formData.program}
+                        onChange={handleChange}
+                        className={`w-full px-3 py-2 bg-gray-50 border rounded-md ${
+                          errors.program ? 'border-red-500' : 'border-gray-300'
+                        }`}
+                        disabled={loading}
+                      >
+                        <option value="">Select Training Program</option>
+                        {programOptions.map((program, index) => (
+                          <option key={index} value={program}>
+                            {program}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.program && <p className="text-red-500 text-sm mt-1">{errors.program}</p>}
+                    </div>
+                    
+                    <div>
+                      <textarea 
+                        name="query"
+                        placeholder="Query" 
+                        value={formData.query}
+                        onChange={handleChange}
+                        className={`w-full px-3 py-2 bg-gray-50 border rounded-md ${
+                          errors.query ? 'border-red-500' : 'border-gray-300'
+                        }`}
+                        disabled={loading}
+                        rows={4}
+                      />
+                      {errors.query && <p className="text-red-500 text-sm mt-1">{errors.query}</p>}
+                    </div>
+                    
                     <Button
                       type="submit"
                       className="w-full bg-[#ff0000] hover:bg-[#6f6f6f] text-white"

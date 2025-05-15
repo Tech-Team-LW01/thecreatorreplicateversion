@@ -106,31 +106,31 @@ const Navbar: React.FC = () => {
         scrolled ? "bg-black shadow-lg" : "bg-black"
       )}
     >
-      <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        {/* Logo */}
-        <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src={LOGO}
-                alt="Logo"
-                width={84}
-                height={12}
-                className="object-contain overflow-hidden"
-                priority
-              />
-            </Link>
-            
-            <Link href="/" className="flex items-center ml-2">
-              <Image
-                src={LOGO1}
-                alt="Logo"
-                width={98}
-                height={68}
-                className="object-contain overflow-hidden"
-                priority
-              />
-            </Link>
-          </div>
+<div className="container mx-auto flex items-center justify-between py-4 px-6">
+  {/* Logo */}
+  <div className="flex items-center">
+    <Link href="/" className="flex items-center">
+      <Image
+        src={LOGO}
+        alt="Logo"
+        width={0}
+        height={45}
+        className="h-[45px] w-auto object-contain overflow-hidden"
+        priority
+      />
+    </Link>
+    
+    <Link href="/" className="flex items-center ml-4">
+      <Image
+        src={LOGO1}
+        alt="Logo"
+        width={0}
+        height={42}
+        className="h-[42px] w-auto object-contain overflow-hidden"
+        priority
+      />
+    </Link>
+  </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-6">
@@ -151,11 +151,11 @@ const Navbar: React.FC = () => {
               </li>
             ))}
               <a
-                  href="/application-form"
+                  href="#query"
                   className="text-white hover:text-[#ff0000] transition-colors duration-200"
                  
                 >
-                  Apply Now
+                  Enquire Now
                 </a>
           </ul>
         </nav>

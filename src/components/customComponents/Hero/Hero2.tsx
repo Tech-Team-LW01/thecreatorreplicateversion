@@ -33,10 +33,10 @@ const Hero2 = () => {
     >
      
      <Link
-  href="/application-form"
+  href="#query"
   className="bg-[#ff0000] hidden md:block p-1 text-sm md:p-2 md:text-lg rounded-sm pr-4 text-white hover:bg-red-800 font-semibold relative z-10 shadow-lg"
 >
-  Applications Open
+  Enquire Now
 </Link>
 
     </motion.div>
@@ -71,10 +71,10 @@ const Hero2 = () => {
         </a> */}
          
      <Link
-  href="/application-form"
+  href="#query"
   className="bg-[#ff0000]  p-1 text-sm md:p-2 md:text-lg rounded-sm pr-4 text-white hover:bg-red-800 font-semibold relative z-10 shadow-lg"
 >
-  Applications Open
+  Enquire Now
 </Link>
         </div>
       </div>
@@ -164,12 +164,12 @@ const Hero2 = () => {
       {/* Button Section */}
       <div className="flex items-center justify-center lg:border-l lg:pl-6 w-full lg:w-auto mt-2 sm:mt-4 md:mt-6 lg:mt-0">
         <div className="flex  flex-col items-center justify-center w-full lg:w-auto">
-          <Link href="/application-form" rel="noopener noreferrer" className="w-full flex justify-center">
+          <Link href="#query" rel="noopener noreferrer" className="w-full flex justify-center">
             <Button
               className={`bg-[#ff0000] font-semibold text-xs sm:text-sm py-3 px-5 sm:py-4 sm:px-6 md:py-6 md:px-8 hover:bg-[#ff0000]/90 hover:shadow-lg transition-all duration-300  font-semibold `}
               size="lg"
               >
-              Apply Now
+              Enquire Now
             </Button>
           </Link>
         </div>

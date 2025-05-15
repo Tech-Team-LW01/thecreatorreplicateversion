@@ -1,5 +1,4 @@
 // components/customComponents/QueryModal.tsx
-
 "use client"
 import { useState, useEffect } from 'react';
 import { toast, Toaster } from 'react-hot-toast';
@@ -27,6 +26,7 @@ interface FormData {
   phone: string;
   query: string;
   college: string;
+  program: string;
 }
 
 interface FormErrors {
@@ -35,6 +35,7 @@ interface FormErrors {
   phone?: string;
   query?: string;
   college?: string;
+  program?: string;
 }
 
 const initialFormData: FormData = {
@@ -42,8 +43,20 @@ const initialFormData: FormData = {
   email: "",
   phone: "",
   query: "",
-  college: ""
+  college: "",
+  program: ""
 };
+
+const programOptions = [
+  "MACHINE LEARNING - AI",
+  "AWS CLOUD COMPUTING",
+  "PYTHON PROGRAMMING",
+  "PYTHON FULL STACK WEB DEVELOPMENT",
+  "MERN STACK DEVELOPMENT",
+  "Salesforce Admin & Development",
+  "Cybersecurity",
+  "Embedded systems, IOT, and Robotics"
+];
 
 const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState<FormData>(initialFormData);
@@ -70,7 +83,19 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
     return () => window.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -116,6 +141,11 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
     } else if (!phoneRegex.test(formData.phone)) {
       newErrors.phone = "Please enter a valid 10-digit phone number";
     }
+    
+    // Program validation
+    if (!formData.program) {
+      newErrors.program = "Please select a training program";
+    }
 
     // Query validation
     if (!formData.query.trim()) {
@@ -139,7 +169,8 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
     setLoading(true);
     
     try {
-      const response = await fetch('/api/contact', {
+      // 1. Submit to your email API endpoint
+      const emailResponse = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -147,15 +178,35 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
         body: JSON.stringify(formData),
       });
       
-      const data = await response.json();
+      const emailData = await emailResponse.json();
       
-      if (response.ok) {
-        toast.success("Query submitted successfully!");
-        setFormData(initialFormData);
-        onClose();
-      } else {
-        toast.error(data.message || "Something went wrong!");
+      if (!emailResponse.ok) {
+        throw new Error(emailData.message || "Email submission failed");
       }
+      
+      // 2. Submit to Google Sheets
+      try {
+        const sheetsResponse = await fetch('/api/sheets', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        if (!sheetsResponse.ok) {
+          console.warn("Google Sheets submission had issues, but email was sent");
+        }
+      } catch (sheetsError) {
+        // Log the error but don't fail the entire submission
+        console.error("Google Sheets submission failed:", sheetsError);
+      }
+      
+      // Success if we reach here
+      toast.success("Query submitted successfully!");
+      setFormData(initialFormData);
+      onClose();
+      
     } catch (error) {
       toast.error("Failed to submit query");
       console.error("Error submitting form:", error);
@@ -168,12 +219,13 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div 
-      className="fixed  inset-0 bg-black/70 z-50 flex items-center justify-center p-4  modal-animation overflow-y-auto"
+      className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 modal-animation overflow-y-auto"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <Toaster position="top-center" />
       
-      <div className="bg-white mt-12 rounded-lg max-w-4xl w-full relative overflow-hidden">
+      {/* Added pt-10 and pb-10 for top spacing, and max-h-[90vh] to ensure it doesn't get too tall */}
+      <div className="bg-white rounded-lg max-w-4xl w-full relative overflow-auto my-8 mx-4 max-h-[90vh]">
         {/* Close button */}
         <button 
           onClick={onClose}
@@ -237,6 +289,17 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
                 disabled={loading}
               />
               
+              {/* New Program Selection Field */}
+              <SelectField
+                name="program"
+                value={formData.program}
+                onChange={handleChange}
+                options={programOptions}
+                placeholder="Select Training Program"
+                error={errors.program}
+                disabled={loading}
+              />
+              
               <TextAreaField
                 name="query"
                 value={formData.query}
@@ -288,7 +351,7 @@ const QueryModal: React.FC<QueryModalProps> = ({ isOpen, onClose }) => {
   );
 };
 
-// Reusable Input Field Component
+// Components remain the same
 const InputField = ({ 
   type, 
   name, 
@@ -325,7 +388,6 @@ const InputField = ({
   </div>
 );
 
-// Reusable Textarea Field Component
 const TextAreaField = ({ 
   name, 
   value, 
@@ -353,6 +415,44 @@ const TextAreaField = ({
         error ? 'border-red-500' : 'border-gray-300'
       } focus:outline-none focus:border-[#ff0000]`}
     />
+    {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+  </div>
+);
+
+const SelectField = ({ 
+  name, 
+  value, 
+  onChange, 
+  options,
+  placeholder, 
+  error,
+  disabled = false 
+}: {
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  options: string[];
+  placeholder: string;
+  error?: string;
+  disabled?: boolean;
+}) => (
+  <div>
+    <select
+      name={name}
+      value={value}
+      onChange={onChange}
+      disabled={disabled}
+      className={`w-full p-3 rounded bg-gray-50 border ${
+        error ? 'border-red-500' : 'border-gray-300'
+      } focus:outline-none focus:border-[#ff0000]`}
+    >
+      <option value="">{placeholder}</option>
+      {options.map((option, index) => (
+        <option key={index} value={option}>
+          {option}
+        </option>
+      ))}
+    </select>
     {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
   </div>
 );
