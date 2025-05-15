@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use client"
 // import Image from "next/image";
 // import {Demo} from "../components/customComponents/Hero/IndiaMap"
@@ -118,8 +117,6 @@ import Awards2 from "@/components/customComponents/Awards/Awards2";
 //     </div>
 //   );
 // }
-=======
->>>>>>> e89ed32c573f45139857ffac86f12496cf827172
 
 
 
@@ -151,7 +148,6 @@ export default function Home() {
         isOpen={showModal} 
         onClose={() => setShowModal(false)} 
       />
-<<<<<<< HEAD
       
 
 <Hero2></Hero2>
@@ -222,7 +218,6 @@ export default function Home() {
 
 
 <SupportContact/>
-=======
 {/* <ContactForm/> */}
       <Hero2 />
       <TechStack />
@@ -252,7 +247,6 @@ export default function Home() {
       <Query />
       <MediaSection />
       <SupportContact />
->>>>>>> e89ed32c573f45139857ffac86f12496cf827172
     </div>
   );
 }
