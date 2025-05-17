@@ -217,7 +217,7 @@ export default function Home() {
 
 
 
-<SupportContact/>
+{/* <SupportContact/> */}
 {/* <ContactForm/> */}
       <Hero2 />
       <TechStack />
