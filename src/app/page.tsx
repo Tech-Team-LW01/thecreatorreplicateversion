@@ -149,7 +149,7 @@ export default function Home() {
         onClose={() => setShowModal(false)} 
       />
       
-
+{/* 
 <Hero2></Hero2>
 <TechStack/>
 <RecapPreviousYear />
@@ -166,7 +166,7 @@ export default function Home() {
 <Awards2/>
 <Map/>
 {/* <Gallery/> */}
-<BentoGallery/>
+{/* <BentoGallery/>
 <Benifits/>
 <Timeline/>
 <OutCome/>
@@ -181,7 +181,7 @@ export default function Home() {
 <ImageTestimonials/>
 <FeatureGrid/>
 <Query/>
-<MediaSection/>
+<MediaSection/> */} 
 
 {/* <Timeline /> */}
 
