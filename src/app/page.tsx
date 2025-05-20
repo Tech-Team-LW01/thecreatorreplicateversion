@@ -221,6 +221,8 @@ export default function Home() {
 {/* <ContactForm/> */}
       <Hero2 />
       <TechStack />
+      
+      <Projets />
       <RecapPreviousYear />
       <Mentor />
       <MentorScroll />
@@ -229,7 +231,6 @@ export default function Home() {
       <Companies/>
       <TopLeaders />
       <Community />
-      <Projets />
       <Awards2 />
       <Map />
       <BentoGallery />

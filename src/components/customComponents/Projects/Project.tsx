@@ -136,9 +136,12 @@ export default function GitiProjects(): JSX.Element {
 
   return (
     <div className="relative bg-black" id="Projects">
+      <h1 className={`text-4xl md:text-5xl text-center mt-4 text-[#ff0000] ${khandFont.className}`}>
+        Register for Summer <span className='text-white'>2025 </span> Here! 
+        </h1>
       {/* Multiple Technology Summer Track Section */}
       <div className="w-full text-center py-4" id="MultipleProjects">
-        <h1 className={`text-3xl md:text-4xl mt-4 text-[#ff0000] ${khandFont.className}`}>
+        <h1 className={`text-2xl md:text-3xl mt-4 text-[#ff0000] ${khandFont.className}`}>
          Option 1 : <span className='text-white'> Multiple Technology Summer Track</span>
         </h1>
         <p className={`text-white text-sm md:text-lg ${poppins.className}`}>
