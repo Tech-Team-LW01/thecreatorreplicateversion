@@ -80,14 +80,13 @@ export default function CourseDetails({
                 className={cn(
                   "w-full text-white font-bold relative overflow-hidden transition-all duration-300 shadow-xl",
                   "bg-gradient-to-r from-orange-500 to-yellow-400 hover:from-orange-600 hover:to-yellow-500",
-                  "rounded-full py-6  transform hover:scale-105",
+                  "rounded-full py-6 transform hover:scale-105",
                   isPulsing ? "animate-pulse shadow-orange-300" : "shadow-orange-200"
                 )}
                 onClick={() => window.open(registerLink, '_blank')}
               >
-                <div className="flex items-center justify-center gap-2 px-6 ">
-                  {/* <Star className="h-5 w-5" /> */}
-                  <span className="relative z-10 text-black" >Book now with Registration fees</span>
+                <div className="flex items-center justify-center gap-2 px-8">
+                  <span className="relative z-10 text-black py-1 px-6">Book now with Registration fees</span>
                 </div>
                 {/* Shine effect */}
                 <span className="absolute top-0 left-0 w-full h-full bg-white opacity-20 transform -skew-x-12 translate-x-full animate-shine"></span>
@@ -105,16 +104,15 @@ export default function CourseDetails({
               
               <Button 
                 className={cn(
-                  "w-1/3 text-white font-bold relative overflow-hidden transition-all duration-300",
-                  "rounded-full py-3 px-6 transform hover:scale-105",
-                  "bg-gradient-to-r from-orange-500 to-red-400 hover:from-orange-600 hover:to-yellow-500",
+                  "w-2/5 text-white font-bold relative overflow-hidden transition-all duration-300",
+                  "rounded-full py-3 transform hover:scale-105",
+                  "bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-orange-600 hover:to-yellow-500",
                   "shadow-lg", isPulsing ? "animate-pulse shadow-orange-300" : "shadow-orange-200"
                 )}
                 onClick={() => window.open(registerLink, '_blank')}
               >
-                <div className="flex items-center justify-center gap-2 px-4">
-                  
-                  <span className="relative z-10 px-6 text-black">Book now with Registration fees</span>
+                <div className="flex items-center justify-center gap-2 px-8">
+                  <span className="relative z-10 py-1 px-8 text-black">Book now with Registration fees</span>
                 </div>
                 {/* Shine effect */}
                 <span className="absolute top-0 left-0 w-full h-full bg-white opacity-20 transform -skew-x-12 translate-x-full animate-shine"></span>
