@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Zap } from "lucide-react";
+import { Zap, Star } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils"; // Assuming you have this utility from shadcn/ui
@@ -22,6 +22,7 @@ export default function CourseDetails({
   price,
 }: CourseDetailsProps) {
   const [isPulsing, setIsPulsing] = useState(false);
+  const [glowIndex, setGlowIndex] = useState(0);
   
   // Effect to create a pulsing animation every few seconds
   useEffect(() => {
@@ -32,6 +33,15 @@ export default function CourseDetails({
     
     return () => clearInterval(interval);
   }, []);
+
+  // Effect to rotate the glowing button
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGlowIndex((prev) => (prev + 1) % content.length);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [content.length]);
 
   return (
     <Card className="bg-pink-50 border-none shadow-sm max-w-3xl">
@@ -68,13 +78,19 @@ export default function CourseDetails({
              
               <Button
                 className={cn(
-                  "w-full bg-red-600 hover:bg-red-700 text-white relative overflow-hidden transition-all duration-400 transform hover:scale-105 hover:shadow-lg",
-                  isPulsing ? "animate-button-pulse" : ""
+                  "w-full text-white font-bold relative overflow-hidden transition-all duration-300 shadow-xl",
+                  "bg-gradient-to-r from-orange-500 to-yellow-400 hover:from-orange-600 hover:to-yellow-500",
+                  "rounded-full py-6  transform hover:scale-105",
+                  isPulsing ? "animate-pulse shadow-orange-300" : "shadow-orange-200"
                 )}
                 onClick={() => window.open(registerLink, '_blank')}
               >
-                <span className="relative z-10">Book now with Registration fees</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <div className="flex items-center justify-center gap-2 px-6 ">
+                  {/* <Star className="h-5 w-5" /> */}
+                  <span className="relative z-10 text-black" >Book now with Registration fees</span>
+                </div>
+                {/* Shine effect */}
+                <span className="absolute top-0 left-0 w-full h-full bg-white opacity-20 transform -skew-x-12 translate-x-full animate-shine"></span>
               </Button>
             </div>
           </div>
@@ -86,19 +102,37 @@ export default function CourseDetails({
                 <span>in just </span>
                 <span className="text-xl font-bold text-red-600">₹{price} (inclusive of taxes)</span>
               </div>
-              <Button
+              
+              <Button 
                 className={cn(
-                  "w-1/3 bg-red-600 hover:bg-red-700 text-white relative overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-lg group",
-                  isPulsing ? "animate-button-pulse" : ""
+                  "w-1/3 text-white font-bold relative overflow-hidden transition-all duration-300",
+                  "rounded-full py-3 px-6 transform hover:scale-105",
+                  "bg-gradient-to-r from-orange-500 to-red-400 hover:from-orange-600 hover:to-yellow-500",
+                  "shadow-lg", isPulsing ? "animate-pulse shadow-orange-300" : "shadow-orange-200"
                 )}
                 onClick={() => window.open(registerLink, '_blank')}
               >
-                <span className="relative z-10">Book now with Registration fees</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <div className="flex items-center justify-center gap-2 px-4">
+                  
+                  <span className="relative z-10 px-6 text-black">Book now with Registration fees</span>
+                </div>
+                {/* Shine effect */}
+                <span className="absolute top-0 left-0 w-full h-full bg-white opacity-20 transform -skew-x-12 translate-x-full animate-shine"></span>
               </Button>
             </div>
           </div>
         </div>
+
+        <style jsx global>{`
+          @keyframes shine {
+            0% { transform: translateX(-100%) skewX(-12deg); }
+            100% { transform: translateX(400%) skewX(-12deg); }
+          }
+          
+          .animate-shine {
+            animation: shine 3s infinite;
+          }
+        `}</style>
       </CardContent>
     </Card>
   )
