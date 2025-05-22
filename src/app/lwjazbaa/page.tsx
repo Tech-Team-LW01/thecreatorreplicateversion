@@ -4,7 +4,7 @@
 import Hero from "@/components/customComponents/Hero/Hero";
 import TechStack from "@/components/customComponents/Technology/Technology";
 import {TopLeaders} from "@/components/customComponents/TopLeaders/TopLeaders";
-import {LeftRightAlumniCarousel} from "@/components/customComponents/CompaniesCarousel/CompaniesCarousel"; import Projets from "@/components/customComponents/Projects/Project";
+import {LeftRightAlumniCarousel} from "@/components/customComponents/CompaniesCarousel/CompaniesCarousel"; import Projets2 from "@/components/customComponents/Projects/projects2";
 import {OutCome}  from "@/components/customComponents/OutCome/OutCome";
 import VideoTestimonials from "@/components/customComponents/Testimonials/VideoTestimonials";
 
@@ -39,87 +39,6 @@ import SupportContact from "@/components/customComponents/Support/Support";
 import BentoGallery from "@/components/customComponents/Gallery/Gallery";
 import Experts from "@/components/customComponents/Mentor/Experts";
 import Awards2 from "@/components/customComponents/Awards/Awards2";
-import Footer from "@/components/customComponents/Footer";
-import WhatsAppBot from "@/components/customComponents/Whatsapp/Whatsapp";
-// import Timeline from "@/components/customComponents/levels/LearningPath/TimeLine";
-
-
-
-
-// export default function Home() {
-//   return (
-//     <div >
-// {/* <Hero></Hero> */}
-
-// <Hero2></Hero2>
-// <TechStack/>
-// <RecapPreviousYear />
-
-// <Mentor/>
-// <Experts/>
-// <MentorScroll/>
-// <Awards/>
-// <TopLeaders/>
-// <Community/>
-// <Projets/>
-// <Map/>
-// {/* <Gallery/> */}
-// <BentoGallery/>
-// <Benifits/>
-// <Timeline/>
-// <OutCome/>
-// <JazbaaStartupPlatform/>
-
-// <OutComeGallary/>
-// <InvestorCarousel/>
-// <JazbaaTimeLine/>
-// <LeftRightAlumniCarousel/>
-// <VideoTestimonials/>
-
-// <ImageTestimonials/>
-// <FeatureGrid/>
-// <Query/>
-// <MediaSection/>
-
-// {/* <Timeline /> */}
-
-
-
-
-
-
-
-
-
-
-// <div>
-
-
-
-// {/* <InitPlacement/> */}
-// </div>
-// {/* <FactAndFiqure/> */}
-
-// {/* <Blogs/> */}
-
-// {/* <Tedx/> */}
-// {/* <Tedx2></Tedx2> */}
-// {/* FeatureGrid is TedX */}
-
-
-
-
-
-
-// {/* <Mentor2/> */}
-
-
-
-// <SupportContact/>
-//     </div>
-//   );
-// }
-
 
 
 
@@ -129,7 +48,7 @@ import QueryModal from "@/components/customComponents/QueryModal";
 // ... your existing imports
 
 import Companies from "@/components/customComponents/Community/Companies";
-import Navbar from "@/components/customComponents/Navbar";
+import Nav from "@/components/customComponents/nav";
 
 
 export default function Home() {
@@ -147,51 +66,11 @@ export default function Home() {
 
   return (
     <div>
-      <QueryModal 
+      {/* <QueryModal 
         isOpen={showModal} 
         onClose={() => setShowModal(false)} 
-      />
+      /> */}
       
-{/* 
-<Hero2></Hero2>
-<TechStack/>
-<RecapPreviousYear />
-
-<Mentor/>
-
-<MentorScroll/>
-<Experts/>
-<Awards/>
-
-<TopLeaders/>
-<Community/>
-<Projets/>
-<Awards2/>
-<Map/>
-{/* <Gallery/> */}
-{/* <BentoGallery/>
-<Benifits/>
-<Timeline/>
-<OutCome/>
-<JazbaaStartupPlatform/>
-
-<OutComeGallary/>
-<InvestorCarousel/>
-<JazbaaTimeLine/>
-<LeftRightAlumniCarousel/>
-<VideoTestimonials/>
-
-<ImageTestimonials/>
-<FeatureGrid/>
-<Query/>
-<MediaSection/> */} 
-
-{/* <Timeline /> */}
-
-
-
-
-
 
 
 
@@ -201,33 +80,13 @@ export default function Home() {
 
 
 
-{/* <InitPlacement/> */}
 </div>
-{/* <FactAndFiqure/> */}
-
-{/* <Blogs/> */}
-
-{/* <Tedx/> */}
-{/* <Tedx2></Tedx2> */}
-{/* FeatureGrid is TedX */}
-
-
-
-
-
-
-{/* <Mentor2/> */}
-
-
-
-{/* <SupportContact/> */}
-{/* <ContactForm/> */}
-      <Navbar/>
+      <Nav/>
       <Hero2 />
       <TechStack />
       
-      <Projets />
-      <RecapPreviousYear />
+      <Projets2 />
+      {/* <RecapPreviousYear />
       <Mentor />
       <MentorScroll />
       <Experts />
@@ -251,10 +110,7 @@ export default function Home() {
       <FeatureGrid />
       <Query />
       <MediaSection />
-     
-      <SupportContact />
-       <Footer />
-       <WhatsAppBot/>
+      <SupportContact /> */}
     </div>
   );
 }

@@ -3,8 +3,8 @@ import React from "react";
 import localFont from "next/font/local";
 import { Roboto } from 'next/font/google';
 import "./globals.css";
-import Navbar from "@/components/customComponents/Navbar";
-import Footer from "@/components/customComponents/Footer";
+// import Navbar from "@/components/customComponents/Navbar";
+// import Footer from "@/components/customComponents/Footer";
 import Footer2 from "@/components/customComponents/Footer2";
 import Footer3 from "@/components/Footer3";
 import WhatsAppBot from "@/components/customComponents/Whatsapp/Whatsapp";
@@ -69,10 +69,10 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
 
         <div className="overflow-x-hidden">
-          <Navbar/>
+          {/* <Navbar/> */}
           {children}
-          <WhatsAppBot/>
-          <Footer/>
+          {/* <WhatsAppBot/> */}
+          {/* <Footer/> */}
           <Footer3/>
           {/* <Footer2/> */}
         </div>

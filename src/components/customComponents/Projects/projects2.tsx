@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { NewData } from './data';
 // Update the Project type to ensure it has a title property
-interface Project {
+interface Project2 {
   title: string;
   description: string;
   image: {
@@ -62,7 +62,7 @@ export default function GitiProjects(): JSX.Element {
     };
   }, []);
 
-  const renderProjectContent = (project: Project): JSX.Element => (
+  const renderProjectContent = (project: Project2): JSX.Element => (
     <CourseDetails
       title={project.title}
       description={project.description}
@@ -73,7 +73,7 @@ export default function GitiProjects(): JSX.Element {
     />
   );
 
-  const renderImageContent = (project: Project): JSX.Element => (
+  const renderImageContent = (project: Project2): JSX.Element => (
     <div className="w-full max-w-[400px] mx-auto flex items-center justify-center">
       <div className="relative group w-full">
         <Image
@@ -89,7 +89,7 @@ export default function GitiProjects(): JSX.Element {
     </div>
   );
 
-  const renderProject = (project: Project, index: number, refIndex: number): JSX.Element => {
+  const renderProject = (project: Project2, index: number, refIndex: number): JSX.Element => {
     const isEven = index % 2 === 0;
 
     return (
@@ -155,7 +155,7 @@ export default function GitiProjects(): JSX.Element {
   </div>
   
   {/* Multiple Technology Summer Track Section */}
-  <div className="w-full text-center py-4" id="MultipleProjects">
+  {/* <div className="w-full text-center py-4" id="MultipleProjects">
     <h1 className={`text-2xl md:text-3xl mt-4 text-[#ff0000] ${khandFont.className}`}>
       Option 1 : <span className='text-white'> Multiple Technology Summer Track</span>
     </h1>
@@ -169,10 +169,10 @@ export default function GitiProjects(): JSX.Element {
         <div className="space-y-2">
           {NewData.multipleProjects.map((project, index) => renderProject(project, index, index))}
         </div>
-      </div>
+      </div> */}
 
       {/* Individual Technology Summer Track Section */}
-      <div className="w-full text-center py-4 mt-8" id="IndividualProjects">
+      {/* <div className="w-full text-center py-4 mt-8" id="IndividualProjects">
         <h1 className={`text-3xl md:text-4xl mt-4 text-[#ff0000] ${khandFont.className}`}>
         Option 2 : <span className='text-white'>Individual Technology Summer Track</span>
         </h1>
@@ -215,7 +215,7 @@ export default function GitiProjects(): JSX.Element {
           opacity: 1 !important;
           transform: translateY(0) !important;
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 }
