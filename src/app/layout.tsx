@@ -6,7 +6,7 @@ import "./globals.css";
 // import Navbar from "@/components/customComponents/Navbar";
 // import Footer from "@/components/customComponents/Footer";
 import Footer2 from "@/components/customComponents/Footer2";
-import Footer3 from "@/components/Footer3";
+// import Footer3 from "@/components/Footer3";
 import WhatsAppBot from "@/components/customComponents/Whatsapp/Whatsapp";
 
 import Script from "next/script";
@@ -73,7 +73,7 @@ export default function RootLayout({
           {children}
           {/* <WhatsAppBot/> */}
           {/* <Footer/> */}
-          <Footer3/>
+          {/* <Footer3/> */}
           {/* <Footer2/> */}
         </div>
       </body>

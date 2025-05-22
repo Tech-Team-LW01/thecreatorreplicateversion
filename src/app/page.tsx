@@ -28,7 +28,7 @@ import { MentorScroll } from "@/components/customComponents/Mentor/mentorScroll"
 import Map from "@/components/customComponents/Map/Map";
 import { JazbaaTimeLine } from "@/components/customComponents/JazbaaTimeLine/JazbaaTimeLine";
 
-import Footer3 from "@/components/Footer3";
+// import Footer3 from "@/components/Footer3";
 
 import Hero2 from "@/components/customComponents/Hero/Hero2";
 import Timeline from "@/components/customComponents/TimeLine/TimeLine";
@@ -40,6 +40,7 @@ import BentoGallery from "@/components/customComponents/Gallery/Gallery";
 import Experts from "@/components/customComponents/Mentor/Experts";
 import Awards2 from "@/components/customComponents/Awards/Awards2";
 import Footer from "@/components/customComponents/Footer";
+import Footer3 from "@/components/Footer3";
 import WhatsAppBot from "@/components/customComponents/Whatsapp/Whatsapp";
 // import Timeline from "@/components/customComponents/levels/LearningPath/TimeLine";
 
@@ -254,6 +255,7 @@ export default function Home() {
      
       <SupportContact />
        <Footer />
+      <Footer3 />
        <WhatsAppBot/>
     </div>
   );
