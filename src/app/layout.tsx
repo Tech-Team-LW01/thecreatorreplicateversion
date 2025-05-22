@@ -22,10 +22,8 @@ const khandFont = localFont(
     src: './fonts/Khand-SemiBold.woff',
     weight: '100 900',
   }
-
 )
 
-// https://www.thecreator.one/
 export const metadata: Metadata = {
   title: "The Creator",
   description: "Summer Internship Industrial Training Program 2025 | Exclusively for Engineering Students",
@@ -39,8 +37,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-       {/* Google Analytics Script */}
-       <Script src="https://www.googletagmanager.com/gtag/js?id=AW-1011251689" strategy="afterInteractive" />
+        {/* Google Tag Manager */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-TJ4GNXH7');`}
+        </Script>
+        {/* End Google Tag Manager */}
+        
+        {/* Google Analytics Script - Your existing code */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-1011251689" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -49,18 +57,24 @@ export default function RootLayout({
             gtag('config', 'AW-1011251689');
           `}
         </Script>
-        </head>
+      </head>
       <body
-        className={`${khandFont.className}  bg-black overflow-x-hidden antialiased`}
+        className={`${khandFont.className} bg-black overflow-x-hidden antialiased`}
       >
+        {/* Google Tag Manager (noscript) */}
+        <noscript dangerouslySetInnerHTML={{ __html: `
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ4GNXH7"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        `}} />
+        {/* End Google Tag Manager (noscript) */}
 
         <div className="overflow-x-hidden">
-        <Navbar/>
-        {children}
-        <WhatsAppBot/>
-        <Footer/>
-        <Footer3/>
-        {/* <Footer2/> */}
+          <Navbar/>
+          {children}
+          <WhatsAppBot/>
+          <Footer/>
+          <Footer3/>
+          {/* <Footer2/> */}
         </div>
       </body>
     </html>

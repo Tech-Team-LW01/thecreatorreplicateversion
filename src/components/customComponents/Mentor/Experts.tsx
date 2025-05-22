@@ -4,6 +4,22 @@ import { useState } from 'react';
 const EXPERTS_DATA = [
   {
     id: 1,
+    name: "Preeti  Chandak",
+    title: "Chief Strategy Officer at LinuxWorld Informatics Pvt Ltd,",
+    image: "/assets/Mentor/Preeti-Ma'am.jpg",
+    description: "Chief Strategy Officer at LinuxWorld Informatics Pvt Ltd, Co-Founder of Hash13, and the Founder of LW JAZBAA under IIEC, she has played a pivotal role in transforming IT training and empowering aspiring tech professionals. Her leadership and dedication have made a lasting impact in the industry.Her remarkable contributions as a Training Coordinator (Corporate & Retail - IT) have shaped countless careers, and her excellence has been recognized with the prestigious Woman Entrepreneur of the Year 2023 award.Ms. Preeti’s passion, strategic vision, and commitment to fostering innovation continue to inspire many. We are privileged to have her with us today.",
+    isEven: false
+  },
+  {
+    id: 2,
+    name: "Syed Jibbran Ali",
+    title: "DevOps Engineer | Technical Trainer ",
+    image: "/assets/Mentor/Syed Jibbran .jpg",
+    description: "Syed Jibbran Ali is a results-driven DevOps Engineer with over 4+ years of professional experience** in designing, implementing, and maintaining scalable DevOps solutions. He possesses deep expertise in CI/CD pipeline automation, containerization (Docker & Kubernetes), infrastructure as code (Ansible, Terraform), and cloud platforms like AWS and Azure.In addition to his technical acumen, Jibbran is a dedicated technical trainer and mentor, with a passion for empowering individuals through practical, hands-on learning. He has conducted multiple training sessions for students, professionals, and corporate teams—bridging the gap between academic knowledge and real-world application.",
+    isEven: true
+  },
+  {
+    id: 3,
     name: "Mukul Shandilya",
     title: "Research Engineer",
     image: "/assets/Mentor/shiv.jpeg",
@@ -11,7 +27,7 @@ const EXPERTS_DATA = [
     isEven: false
   },
   {
-    id: 2,
+    id: 4,
     name: "Shiv Kumar Shakya",
     title: "Associate Software Developer",
     image: "/assets/Mentor/WhatsApp Image 2025-05-06 at 5.03.01 PM.jpeg",
