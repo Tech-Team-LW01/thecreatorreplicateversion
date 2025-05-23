@@ -107,7 +107,7 @@ const Hero2 = () => {
               TENTATIVE START DATES
             </span>
             <span className={`font-bold text-[7px] sm:text-xs md:text-sm text-white mt-1  ${poppins.className}`}>
-            26th May | 2nd June | |15 June| 23rd June
+            26th May | 2nd June | |16 June| 23rd June
             </span>
             <Badge variant="outline" className="text-[#ff0000] border-red-200 text-[7px] sm:text-[9px] md:text-[10px] mt-2 w-fit">
               Limited seats
