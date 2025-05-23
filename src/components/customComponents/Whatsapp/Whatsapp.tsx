@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const WhatsAppBot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneNumber = "9829105960"; // Replace with your desired phone number
+  const phoneNumber = "9828616335"; // Replace with your desired phone number
   const photoURL =
     "https://media.licdn.com/dms/image/v2/C4E0BAQER-Sage-ex_A/company-logo_200_200/company-logo_200_200/0/1639050566015/linuxworld_informatics_pvt_ltd_logo?e=1740009600&v=beta&t=W2qpnHkepg2P04Ynh-QMXIg-Alwj7HRyvLWTPnxbnHM"; // Replace with your desired photo URL
 
