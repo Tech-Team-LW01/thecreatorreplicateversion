@@ -79,7 +79,7 @@ export const NewData = {
         "Github",
         "RHELv9 (Red Hat Enterprise Linux)"
       ],
-      registerLink: "https://rzp.io/rzp/LcByPAT ",
+      registerLink: "https://rzp.io/rzp/sitpregister ",
       originalPrice: "",
       price: "15,000",
       projectCode: "LW-PSI-SP-106"
@@ -121,7 +121,7 @@ export const NewData = {
         "Hyperparameter Tuning",
         "Optimization",
       ],
-      registerLink: "https://rzp.io/rzp/47kmYFCr",
+      registerLink: "https://rzp.io/rzp/sitpregister",
       originalPrice: "",
       price: "8,000 ",
       projectCode: "LW-PSI-SP-100"
@@ -161,7 +161,7 @@ export const NewData = {
         "Amazon Translate",
         "Amazon Forecast"
       ],
-      registerLink: "https://rzp.io/rzp/Og4HCEB ",
+      registerLink: "https://rzp.io/rzp/sitpregister ",
       originalPrice: "16,000",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
@@ -192,7 +192,7 @@ export const NewData = {
         "Multi-Threading And Socket Programming",
         "Python Object-Oriented Programming"
       ],
-      registerLink: "https://rzp.io/rzp/srRJcza  ",
+      registerLink: "https://rzp.io/rzp/sitpregister ",
       originalPrice: "",
       price: "8,000",
       projectCode: "LW-PSI-SP-101"
@@ -234,7 +234,7 @@ export const NewData = {
         "Flask",
         "MySQL",
       ],
-      registerLink: "https://rzp.io/rzp/6duw8S3W ",
+      registerLink: "https://rzp.io/rzp/sitpregister ",
       originalPrice: "",
       price: "8,000 ",
       projectCode: "LW-PSI-SP-100"
@@ -271,7 +271,7 @@ export const NewData = {
         "Code Organization and Structure",
         "Error Handling"
       ],
-      registerLink: "https://rzp.io/rzp/rbFeiL6",
+      registerLink: "https://rzp.io/rzp/sitpregister",
       originalPrice: "",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
@@ -306,7 +306,7 @@ export const NewData = {
       "LWC"
 
       ],
-      registerLink: "https://rzp.io/rzp/AgXliZXG ",
+      registerLink: "https://rzp.io/rzp/sitpregister",
       originalPrice: "",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
@@ -341,7 +341,7 @@ export const NewData = {
         "Wireless Hacking"
         
       ],
-      registerLink: "https://rzp.io/rzp/zihXhnn ",
+      registerLink: "https://rzp.io/rzp/sitpregister",
       originalPrice: "",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
@@ -377,7 +377,7 @@ export const NewData = {
 
         
       ],
-      registerLink: "https://rzp.io/rzp/oyIPDq3l",
+      registerLink: "https://rzp.io/rzp/sitpregister",
       originalPrice: "",
       price: "8,000",
       projectCode: "LW-PSI-SP-100"
