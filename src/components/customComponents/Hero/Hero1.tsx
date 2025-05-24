@@ -12,6 +12,11 @@ const poppins = Poppins({
    subsets: ['latin'],
    weight: ['400']
 });
+const handleWhatsAppClick = () => {
+    // Pre-filled message
+    const message = encodeURIComponent("Hello!! I want to enroll for the Internship program.");
+    window.open(`https://wa.me/919828616335?text=${message}`, '_blank');
+  };
 
 import localFont from "next/font/local";
 const khandFont = localFont({
@@ -39,7 +44,7 @@ const Hero2 = () => {
                 
                 {/* WhatsApp Button */}
                 <button
-                    onClick={() => window.open('https://wa.me/919828616335', '_blank')}
+                    onClick={handleWhatsAppClick}
                     className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 hover:shadow-lg transition-all duration-300 text-center flex items-center gap-2 mx-auto"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
