@@ -95,12 +95,23 @@ const Nav: React.FC = () => {
         {/* Desktop WhatsApp Button */}
         <button
           onClick={handleWhatsAppClick}
-          className=" bg-green-600 text-white  px-8 py-3 rounded-lg hover:bg-green-700 hover:shadow-lg transition-all duration-300 text-center flex items-center gap-2  "
+          className="hidden lg:flex bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 hover:shadow-lg transition-all duration-300 text-center items-center gap-2"
         >
            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M13.601 2.326A7.854 7.854 0 0 0 8 0 7.91 7.91 0 0 0 .05 8.028a7.97 7.97 0 0 0 1.167 4.157l-.5 1.83A.5.5 0 0 0 1.225 15h.5a.5.5 0 0 0 .374-.155l1.516-1.716a8.01 8.01 0 0 0 4.395 1.11c4.395.15 8.168-3.408 8.168-7.934 0-1.463-.396-2.822-1.068-4.013zm-6.598 9.79A6.5 6.5 0 0 1 1.5 8a6.5 6.5 0 0 1 6.5-6.5A6.5 6.5 0 0 1 14.5 8a6.5 6.5 0 0 1-6.5 6.5 6.5 6.5 0 0 1-3.597-1.084L1.4 14.48V14.5a.5.5 0 0 1-.5-.5v-2l1.126-1.264a6.5 6.5 0 0 1-.93-3.236 6.5 6.5 0 0 1 6.5-6.5 6.5 6.5 0 0 1 6.5 6.5 6.5 6.5 0 0 1-6.5 6.5 6.5 6.5 0 0 1-1.593-.2z"/>
                     </svg>
           Start Chat on Whatsapp
+        </button>
+
+        {/* Mobile WhatsApp Button */}
+        <button
+          onClick={handleWhatsAppClick}
+          className="lg:hidden bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 hover:shadow-lg transition-all duration-300 flex items-center gap-2"
+        >
+           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 8 0 7.91 7.91 0 0 0 .05 8.028a7.97 7.97 0 0 0 1.167 4.157l-.5 1.83A.5.5 0 0 0 1.225 15h.5a.5.5 0 0 0 .374-.155l1.516-1.716a8.01 8.01 0 0 0 4.395 1.11c4.395.15 8.168-3.408 8.168-7.934 0-1.463-.396-2.822-1.068-4.013zm-6.598 9.79A6.5 6.5 0 0 1 1.5 8a6.5 6.5 0 0 1 6.5-6.5A6.5 6.5 0 0 1 14.5 8a6.5 6.5 0 0 1-6.5 6.5 6.5 6.5 0 0 1-3.597-1.084L1.4 14.48V14.5a.5.5 0 0 1-.5-.5v-2l1.126-1.264a6.5 6.5 0 0 1-.93-3.236 6.5 6.5 0 0 1 6.5-6.5 6.5 6.5 0 0 1 6.5 6.5 6.5 6.5 0 0 1-6.5 6.5 6.5 6.5 0 0 1-1.593-.2z"/>
+                    </svg>
+          <span className="text-sm">Chat</span>
         </button>
 
         {/* Mobile Menu Toggle */}
@@ -130,11 +141,14 @@ const Nav: React.FC = () => {
             className="lg:hidden absolute right-4 top-full bg-black w-64 shadow-lg z-10 rounded-lg border border-gray-800"
           >
             <div className="p-4">
-              {/* Mobile WhatsApp Button */}
+              {/* Mobile Menu WhatsApp Button */}
               <button
                 onClick={handleWhatsAppClick}
-                className="block w-full mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 hover:shadow-lg transition-all duration-300 text-center"
+                className="block w-full mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 hover:shadow-lg transition-all duration-300 text-center flex items-center justify-center gap-2"
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M13.601 2.326A7.854 7.854 0 0 0 8 0 7.91 7.91 0 0 0 .05 8.028a7.97 7.97 0 0 0 1.167 4.157l-.5 1.83A.5.5 0 0 0 1.225 15h.5a.5.5 0 0 0 .374-.155l1.516-1.716a8.01 8.01 0 0 0 4.395 1.11c4.395.15 8.168-3.408 8.168-7.934 0-1.463-.396-2.822-1.068-4.013zm-6.598 9.79A6.5 6.5 0 0 1 1.5 8a6.5 6.5 0 0 1 6.5-6.5A6.5 6.5 0 0 1 14.5 8a6.5 6.5 0 0 1-6.5 6.5 6.5 6.5 0 0 1-3.597-1.084L1.4 14.48V14.5a.5.5 0 0 1-.5-.5v-2l1.126-1.264a6.5 6.5 0 0 1-.93-3.236 6.5 6.5 0 0 1 6.5-6.5 6.5 6.5 0 0 1 6.5 6.5 6.5 6.5 0 0 1-6.5 6.5 6.5 6.5 0 0 1-1.593-.2z"/>
+                </svg>
                 Start Chat on Whatsapp
               </button>
             </div>
