@@ -34,7 +34,7 @@ const khandFont = Khand({
 });
 const handleWhatsAppClick = () => {
     // Pre-filled message
-    const message = encodeURIComponent("Hello!! I want to enroll for the Internship program.");
+    const message = encodeURIComponent("Hello!! I want to enroll for the Summer Industrial Training & Internship Program.");
     window.open(`https://wa.me/919828616335?text=${message}`, '_blank');
   };
 export default function GitiProjects(): JSX.Element {
@@ -154,7 +154,7 @@ export default function GitiProjects(): JSX.Element {
         <path d="M13.601 2.326A7.854 7.854 0 0 0 8 0 7.91 7.91 0 0 0 .05 8.028a7.97 7.97 0 0 0 1.167 4.157l-.5 1.83A.5.5 0 0 0 1.225 15h.5a.5.5 0 0 0 .374-.155l1.516-1.716a8.01 8.01 0 0 0 4.395 1.11c4.395.15 8.168-3.408 8.168-7.934 0-1.463-.396-2.822-1.068-4.013zm-6.598 9.79A6.5 6.5 0 0 1 1.5 8a6.5 6.5 0 0 1 6.5-6.5A6.5 6.5 0 0 1 14.5 8a6.5 6.5 0 0 1-6.5 6.5 6.5 6.5 0 0 1-3.597-1.084L1.4 14.48V14.5a.5.5 0 0 1-.5-.5v-2l1.126-1.264a6.5 6.5 0 0 1-.93-3.236 6.5 6.5 0 0 1 6.5-6.5 6.5 6.5 0 0 1 6.5 6.5 6.5 6.5 0 0 1-6.5 6.5 6.5 6.5 0 0 1-1.593-.2z"/>
         <path d="M10.937 11.55 8.463 9.977c-.407-.294-.826-.59-1.163-.59-.341 0-.766.3-1.156.59l-2.476 1.573a.25.25 0 0 1-.333-.074l-.263-.433a.25.25 0 0 1 .073-.332l2.413-1.533a.25.25 0 0 0 .119-.213v-.82a.25.25 0 0 0-.119-.213L3.65 6.775a.25.25 0 0 1-.073-.332l.263-.433a.25.25 0 0 1 .333-.074l2.476 1.573c.39.292.815.59 1.156.59.337 0 .756-.294 1.163-.59l2.476-1.573a.25.25 0 0 1 .333.074l.263.433a.25.25 0 0 1-.073.332L9.825 8.355a.25.25 0 0 0-.119.213v.82c0 .086.043.168.119.213l2.412 1.533a.25.25 0 0 1 .073.332l-.263.433a.25.25 0 0 1-.333.074z"/>
       </svg> */}
-      Start Chat on WhatsApp
+      Start Chat on Whatsapp
     </button>
   </div>
   
